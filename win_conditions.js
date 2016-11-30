@@ -4,19 +4,17 @@
 
 $(document).ready(function () {
     $(".square").click(square_clicked);         // Call function number_clicked when clicking on a number button
-    $(".operator").click(operator_clicked);     // for any 4 of the operator (/ X - +) buttons
-    $(".equal").click(equal_clicked);           // for equal "=" sign
-    $(".special").click(special_clicked);       // for the clear keys (C and CE)
+
 });
+
 
 function square_clicked () {
 
     var square_index = $(this).text();
+    square_index = square_index.trim();         // .trim Removes white space from the string/text.
+    console.log("in square clicked and square_index is: " + square_index);
 
-    var numString = $(this).text();
-    numString = numString.trim();   // .trim Removes white space from the string/text.
-
-    // console.log("numString: " + numString);
+    /* console.log("numString: " + numString);
     var isItEmpty = array1[index];
 
     if (isItEmpty === " ") {
@@ -30,7 +28,7 @@ function square_clicked () {
         // console.log("index: " + index + array1[index]);
         $(".container1 .display h4:last-child").text(array1[index]);
     }
-
+    */
 } // end of function number_clicked
 
 square_template = function () {
@@ -49,7 +47,13 @@ player_template = function () {
     this.name = "Cung";
     this.games_played = 3;
     this.games_won = 4;
-    this.
+    this.one_owned;
+    this.two_owned;
+    this.three_owned;
+    this.A_owned;
+    this.B_owned;
+    this.C_owned;
+    this.increase_A_by_one();
+    this.increase_B_by_one();
+    this.increase_C_by_one();
 }
-
-player1
