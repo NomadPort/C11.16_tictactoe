@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 
 $(document).ready(function () {
     $(".square").click(square_clicked);         // Call function square_clicked when clicking on a number button
@@ -116,3 +118,4 @@ function send_message(){
 
 }
 
+>>>>>>> c78f8f516a692f80318b1006d170113000b8394b
