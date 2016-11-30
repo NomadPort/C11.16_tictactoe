@@ -1,0 +1,34 @@
+body {
+    width: 100vw;
+    height:100vh;
+}
+.game_body {
+    width: 40vw;
+    height: 60vh;
+    text-align: center;
+    position:relative;
+    float:left;
+    left: 20%;
+    top:10%;
+}
+.cell {
+    border: solid black;
+    display: inline-block;
+    width: 20%;
+    height:30%;
+    box-sizing: border-box;
+    background-color: white;
+}
+.header {
+    width:100%;
+    height:20vh;
+    background-color: #559385;
+
+}
+.stats_body {
+    background-color: #559385;
+    height:80vh;
+    width: 15vw;
+    position:relative;
+    float:left;
+}
