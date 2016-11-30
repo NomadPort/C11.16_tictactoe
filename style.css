@@ -19,7 +19,11 @@ body {
     height:20%;
     box-sizing: border-box;
     background-color: white;
-    border-radius: 1em;
+    border-radius: .5em;
+    text-align: center;
+    font-size: 2em;
+    font-weight:bold;
+    font-family: verdana sans-serif;
 }
 .header {
     width:100%;
@@ -42,5 +46,10 @@ body {
     height:20%;
     box-sizing: border-box;
     background-color: white;
-    border-radius: 1em;
+    border-radius: .5em;
+    text-align: center;
+    font-size: 2em;
+    font-weight:bold;
+    font-family: verdana sans-serif;
 }
+
