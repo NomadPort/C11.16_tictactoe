@@ -1,8 +1,6 @@
-
-
 $(document).ready(function () {
     $(".square").click(square_clicked);         // Call function square_clicked when clicking on a number button
-
+    $('.game_body').click(interaction);
 });
 
 function square_clicked () {
@@ -31,14 +29,14 @@ function square_clicked () {
 square_template = function () {
     this.make_X = function() {
         $(this).text('X');
-    }
+    };
     this.make_O = function() {
         $(this).text('O');
-    }
+    };
     this.clearXO = function() {
         $(this).text(' ');
     }
-}
+};
 
 player_template = function () {
     this.name = "Cung";
@@ -53,7 +51,8 @@ player_template = function () {
     this.increase_A_by_one();
     this.increase_B_by_one();
     this.increase_C_by_one();
-}$(document).ready(function () {
+};
+$(document).ready(function () {
     $(".square").click(square_clicked);         // Call function number_clicked when clicking on a number button
 
 });
@@ -85,14 +84,14 @@ function square_clicked () {
 square_template = function () {
     this.make_X = function() {
         $(this).text('X');
-    }
+    };
     this.make_O = function() {
         $(this).text('O');
-    }
+    };
     this.clearXO = function() {
         $(this).text(' ');
     }
-}
+};
 
 player_template = function () {
     this.name = "Cung";
@@ -107,7 +106,7 @@ player_template = function () {
     this.increase_A_by_one();
     this.increase_B_by_one();
     this.increase_C_by_one();
-}
+};
 
 function start_game (){
 
@@ -117,3 +116,5 @@ function send_message(){
 
 }
 
+function interaction(p1 , p2){
+}
