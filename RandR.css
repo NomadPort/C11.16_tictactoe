@@ -1,5 +1,6 @@
 /* This is CSS specifically for Rules and Regulations html page.  Vernon Louie */
 
+
 header {
     height:             10vh;
     width:              90vw;
@@ -32,9 +33,11 @@ header {
     padding:            0.5em;
 }
 
+/*
 .generic_button:first-child {
     margin-left:        0.5em;
 }
+*/
 
 p {
     display:            inline-block;
