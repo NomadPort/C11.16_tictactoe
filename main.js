@@ -171,30 +171,48 @@ function reset() {
         }
     }
 
-function nxnTTT () {
-    var n = 3;
-    var win_conditions = [];
+function nxnTTT () {                            // get winning_condition array of arrays for any odd number n
+    var n = 7;                                  // there will be 2n+2 arrays that are each of n length each
+    var horizontal_winners = [];
+    var vertical_winners = [];
+    var diagonal_1_winner = [];
+    var diagonal_2_winner = [];
 
     for (var i=0; i < n; ++i) {                 // for horizontal rows
+        horizontal_winners[i] = [];
         for (var j=0; j < n; ++j) {
-            win_conditions[i][j].push((i*n) + j);
+            horizontal_winners[i].push((i*n) + j);
         }
     }
 
     for (i=0; i < n; i++) {                     // for vertical columns
+        vertical_winners[i] = [];
         for (j=0; j < n; j++) {
-            win_conditions[(i+n)][j].push((j*n) + i);
+              vertical_winners[i].push((j*n) + i);
         }
     }
 
-    for (j=0; j < n; ++j) {
-        win_conditions[2*n][j].push(j * (n+1));
+    for (i=0; i < 1; ++i) {
+        diagonal_1_winner[i] = [];
+        for (j=0; j < n; ++j) {                     // for diagonal going upper left corner to bottom right corner
+            diagonal_1_winner[i].push(j * (n+1));
+        }
     }
 
-    for (j=0; j < n; j++) {
-        win_conditions[2*n+1][j].push((j+1)(n-1));
+    for (i=0; i < 1; ++i) {
+        diagonal_2_winner[i] = [];
+        for (j = 0; j < n; j++) {                     // for diagonal going from bottom left corner to upper right corner
+            diagonal_2_winner[i].push((j + 1) * (n - 1));
+        }
     }
 
-    console.log("win conditions: " + win_oonditions);
+    console.log("horizontal winners: ", horizontal_winners + "   vertical winners: ", vertical_winners + "   diagonal_1_winner: ", diagonal_1_winner + "  diagonal_2_winner: " + diagonal_2_winner);
+
+    var inter1 = horizontal_winners.concat(vertical_winners);
+    console.log("horiz + verti = ", inter1);
+    var inter2 = inter1.concat(diagonal_1_winner);
+    console.log("inter2 = ", inter2);
+    var final_winning_conditions = inter2.concat(diagonal_2_winner);
+    console.log("final: ", final_winning_conditions);
 }
 
