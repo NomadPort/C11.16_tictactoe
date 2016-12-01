@@ -2,6 +2,8 @@ $(document).ready(function () {
     $(".square").click(square_clicked);         // Call function square_clicked when clicking on a number button
     $('.game_body').click(interaction);
 });
+var player1 = x;
+var player2 = o;
 
 function square_clicked () {
 
@@ -115,6 +117,9 @@ function start_game (){
 function send_message(){
 
 }
-
-function interaction(p1 , p2){
+/*interation: when clicked box is filled with respective player symbols.*/
+function interaction(){
+    $('.cell').click(function (){
+        if ()
+    })
 }
