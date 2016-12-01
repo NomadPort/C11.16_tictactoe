@@ -5,12 +5,45 @@ $(document).ready(function () {
 
 });
 
+var P1_array = [];
+var P1_A = 0;
+var P1_B = 0;
+var P1_C = 0;
+var P1_1 = 0;
+var P1_2 = 0;
+var P1_3 = 0;
+
 function cell_clicked () {
+    var letter;
+    var number;
+
     var cell_index = $(this).text();
     cell_index = cell_index.trim();         // .trim Removes white space from the string/text.
     console.log("in cell_clicked and cell_index is: " + cell_index);
 
-    $(this).text
+    letter = cell_index.substring(0,1);
+    number = cell_index.substring(1);
+    console.log("letter: " + letter, " number: ", number);
+
+    if (letter === "A") {
+        P1_A++;
+    } else if (letter === "B") {
+        P1_B++;
+    } else {
+        P1_C++;
+    }
+
+    if (number === "1") {
+        P1_1++;
+    } else if (number === "2") {
+        P1_2++;
+    } else {
+        P1_3++;
+    }
+
+    console.log("A: " + P1_A + "  B: " + P1_B + "  C: " + P1_C + "  1: " + P1_1 + "  2: " + P1_2 + "  3: " + P1_3);
+
+    // P1_array.push(cell_index);
 
     /* console.log("numString: " + numString);
      var isItEmpty = array1[index];
@@ -87,6 +120,7 @@ player_template = function () {
     this.increase_B_by_one();
     this.increase_C_by_one();
 };
+*/
 
 function start_game (){
 
