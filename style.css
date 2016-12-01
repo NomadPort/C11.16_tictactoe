@@ -1,3 +1,4 @@
+
 body {
     width: 100vw;
     height:100vh;
@@ -10,6 +11,7 @@ body {
     float:left;
     left: 10%;
     top:2%;
+    background-color:   hotpink;
 
 }
 .cell {
@@ -53,3 +55,14 @@ body {
     font-weight:bold;
     font-family: verdana sans-serif;
 }
+<<<<<<< HEAD
+=======
+
+.right_side_panel {
+    height:             60vh;
+    width:              20vw;
+    background-color:   lightyellow;
+    float:              right;
+}
+
+>>>>>>> master

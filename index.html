@@ -1,41 +1,62 @@
 <!doctype html>
 <html lang="en">
-<<<<<<< HEAD
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link href="style.css" type="text/css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-    <script src="main.js"></script>
-    <title>Tic Tac Toe</title>
-</head>
-<body onload="start_game();">
-    <div class="header">
-        <h1>LOGO</h1>
-    </div>
-    <div class="stats_body">
-        <h1>
-            STATS
-        </h1>
-    </div>
-    <div class="game_body">
-        <h2 class="who_turn">
-            Who turn?
-        </h2>
-        <div class="cell" onclick="next_move(this);"></div>
-        <div class="cell" onclick="next_move(this);"></div>
-        <div class="cell" onclick="next_move(this);"></div>
-        <br>
-        <div class="cell" onclick="next_move(this);"></div>
-        <div class="cell" onclick="next_move(this);"></div>
-        <div class="cell" onclick="next_move(this);"></div>
-        <br>
-        <div class="cell" onclick="next_move(this);"></div>
-        <div class="cell" onclick="next_move(this);"></div>
-        <div class="cell" onclick="next_move(this);"></div>
-    </div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link href="style.css" type="text/css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+        <script src="main.js"></script>
+        <title>Tic Tac Toe</title>
+    </head>
+
+    <body onload="start_game();">
+        <div class="header">
+            <h1>LOGO</h1>
+            <p>Frank</p>
+            <h6>Janie</h6>
+        </div>
+
+        <div class="stats_body">
+            <h1>
+                STATS
+            </h1>
+            <p> P1 name: </p>
+            <h3> P1 - games won: </h3>
+            <h4> P2 name: </h4>
+            <h6> P2 - games lost: </h6>
+            <h5> Games played: </h5>
+        </div>
+
+        <div class="game_body">
+            <h2 class="who_turn">
+                Who turn?
+            </h2>
+            <div cell_num=0 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=1 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=2 class="cell" onclick="next_move(this);"></div>
+            <br>
+
+            <div cell_num=3 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=4 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=5 class="cell" onclick="next_move(this);"></div>
+            <br>
+
+            <div cell_num=6 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=7 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=8 class="cell" onclick="next_move(this);"></div>
+
+            <h5> </h5>
+        </div>
+
+        <div class="right_side_panel">
+
+        </div>
+    </body>
+
+</html>
+
 
