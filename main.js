@@ -151,7 +151,8 @@ function player_template() {
 
 /* reset game: on click game board reverts to blank*/
 function reset_game() {
-    $('.cell').clear().click(cell_clicked());
+    $('.cell').empty();
+    $('.cell').click(cell_clicked())
 }
 
     function next_move(square) {
