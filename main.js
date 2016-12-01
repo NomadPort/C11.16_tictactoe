@@ -6,21 +6,18 @@ $(document).ready(function () {
 
 });
 
+var whose_turn = "P1";
+
 var player1 =null;
 var player2 =null;
 
 var P1 = new player_template();
 var P2 = new player_template();
 
-P1.name = "Bobby";
-P1.games_played = 3;
+P2.change_turn_to_false();
 
-P2.name = "Jane";
-P2.games_played = 5;
-
-var winner_name = P1.name;
-var loser_name = P2.name;
 var P1_array = [];
+var P2_array = [];
 
 function cell_clicked () {
     var fun_phrase = [" wears her pants backwards.", " thinks that driving home in the rain is fun.", " can light a flame by burping.", " drives a stick shift with 3 hands.", " accelerates to a stop.", " sleeps all the time.", " thinks heavy thoughts.", " flagellates."];
@@ -38,12 +35,24 @@ function cell_clicked () {
     $(".stats_body h5").append(P2.games_played);
     $(".stats_body h6").append(P2.games_lost);
 
-    var num1 = $(this).attr('cell_num');    // the number is really a string, so need to convert to a number
-    num1 = Number(num1);
-    P1_array.push(num1);
-    var length = P1_array.length;
+    var num = $(this).attr('cell_num');    // the number is really a string, so need to convert to a number
+    num = Number(num);
 
-    console.log("num1: " + num1 + "P1_array: " + P1_array);
+    if (whose_turn === "P1") {
+        P1_array.push(num);
+        var length = P1_array.length;
+        var winner_name = P1.name;
+        var loser_name = P2.name;
+        whose_turn = "P2";
+        console.log("num: " + num + "   P1_array: " + P1_array);
+    } else {
+        P2_array.push(num);
+        var length = P2_array.length;
+        var winner_name = P2.name;
+        var loser_name = P1.name;
+        whose_turn = "P1";
+        console.log("num: " + num + "   P2_array: " + P2_array);
+    }
 
     if (length >= 3) {                      // don't check for winning condition unless player has X'd or O'd 3 cells
 
@@ -55,7 +64,7 @@ function cell_clicked () {
 
                 for (var n = 0; n < 3; n++) {
                     if (P1_num === winning_conditions[m][n]) {  // see if player's cell matches a cell from the chosen winning condition
-                        count++
+                        count++;
                     }
 
                     console.log("m: " + m + "  n: " + n + "  cell value: " + winning_conditions[m][n] + "  count: " + count);
@@ -81,8 +90,14 @@ function cell_clicked () {
     } // end of outer if block
 }
 
-     function interaction(p1 , p2){
-     }
+function interaction(p1 , p2){
+    var first_player_name = $(".header p").text();
+    var second_player_name = $(".header h6").text()
+    console.log("1st player name: " + first_player_name + "  2nd player name: " + second_player_name);
+
+    P1.name = first_player_name;
+    P2.name = second_player_name;
+}
 
 var square_template = function () {
     this.make_X = function() {
@@ -98,10 +113,17 @@ var square_template = function () {
 
 function player_template() {
     this.name = "No Name Yet";
+    this.turn = true;
     this.games_played = 0;
     this.games_won = 0;
     this.games_lost = 0;
 
+    this.change_turn_to_true = function() {
+        this.turn = true;
+    }
+    this.change_turn_to_false = function() {
+        this.turn = false;
+    }
     this.increment_games_played = function() {
         this.games_played += 1;
     };
@@ -152,22 +174,22 @@ function nxnTTT () {
 
     for (var i=0; i < n; ++i) {                 // for horizontal rows
         for (var j=0; j < n; ++j) {
-            win_conditions[i][j] = (i*n) + j;
+            win_conditions[i][j].push((i*n) + j);
         }
     }
 
     for (i=0; i < n; i++) {                     // for vertical columns
         for (j=0; j < n; j++) {
-            win_conditions[(i+n)][j] = (j*n) + i;
+            win_conditions[(i+n)][j].push((j*n) + i);
         }
     }
 
     for (j=0; j < n; ++j) {
-        win_conditions[2*n][j] = j * (n+1);
+        win_conditions[2*n][j].push(j * (n+1));
     }
 
     for (j=0; j < n; j++) {
-        win_conditions[2*n+1][j] = (j+1)(n-1);
+        win_conditions[2*n+1][j].push((j+1)(n-1));
     }
 
     console.log("win conditions: " + win_oonditions);
