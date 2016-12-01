@@ -1,20 +1,30 @@
 
 $(document).ready(function () {
+
     $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a cell button
     $('.game_body').click(interaction);
     $(".header h1").click(nxnTTT);
 
 });
 var count;
-var whose_turn = "P1";
-
+var whose_turn = "P_one";
 var player1 =null;
 var player2 =null;
-
 var P1 = new player_template();
-var P2 = new player_template();
+var P1 = {
+    name:           "Frank",
+    games_played:   7,
+    games_won:      3,
+    games_lost:     41
+};
 
-P2.change_turn_to_false();
+var P2 = new player_template();
+var P2 = {
+    name:           "Janie",
+    games_played:   29,
+    games_won:      15,
+    games_lost:     1
+};
 
 var P1_array = [];
 var P2_array = [];
@@ -28,24 +38,23 @@ function cell_clicked () {
     //   3    4    5
     //   6    7    8
 
-    $(".stats_body p").append(P1.name);
-    $(".stats_body h2").append(P1.games_played);
-    $(".stats_body h3").append(P1.games_won);
-    $(".stats_body h4").append(P2.name);
-    $(".stats_body h5").append(P2.games_played);
-    $(".stats_body h6").append(P2.games_lost);
+    $("#P1_name_slot").text(P1.name);
+    $("#P1_games_slot").text(P1.games_won);
+    $("#P2_name_slot").text(P2.name);
+    $("#P2_games_slot").text(P2.games_lost);
+    $("#games_played_slot").text(P2.games_played);
 
     var num = $(this).attr('cell_num');    // the number is really a string, so need to convert to a number
     num = Number(num);
 
-    if (whose_turn === "P1") {
+    if (whose_turn === "P_one") {
         P1_array.push(num);
         var length = P1_array.length;
         player_array = P1_array;
 
         var winner_name = P1.name;
         var loser_name = P2.name;
-        whose_turn = "P2";
+        whose_turn = "P_two";
         console.log("num: " + num + "   P1_array: " + P1_array);
     } else {
         P2_array.push(num);
@@ -54,7 +63,7 @@ function cell_clicked () {
 
         var winner_name = P2.name;
         var loser_name = P1.name;
-        whose_turn = "P1";
+        whose_turn = "P_one";
 
         console.log("num: " + num + "   P2_array: " + P2_array);
     }
@@ -76,17 +85,18 @@ function cell_clicked () {
 
                     if (count === 3) {
                         var f = Math.floor(Math.random()*8);
-                        $(".game_body h5").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
                         $('.cell').removeAttr('onclick');
+                        $(".game_body h2").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
+
                         P1.increment_games_played();
                         P1.increment_games_won();
                         P2.increment_games_played();
                         P2.increment_games_lost();
-                        $(".stats_body p").append(P1.name);
-                        $(".stats_body h3").append(P1.games_won);
-                        $(".stats_body h4").append(P2.name);
-                        $(".stats_body h5").append(P2.games_played);
-                        $(".stats_body h6").append(P2.games_lost);
+                        $("#P1_name_slot").text(P1.name);
+                        $("#P1_games_slot").text(P1.games_won);
+                        $("#P2_name_slot").text(P2.name);
+                        $("#P2_games_slot").text(P2.games_lost);
+                        $("#games_played_slot").text(P2.games_played);
                         return;                 // if we have a winner, no need to check for winning condition any longer
                     }
                 } // end of inner for loop
@@ -141,14 +151,32 @@ function player_template() {
     this.array;
 }
 
-    var symbol = 'X';
-    function start_game(){
-        send_message(symbol + ' Go First')
-    }
-    function send_message(msg) {
-        $('.who_turn').text(msg)
-    }
+var symbol = 'X';
+var player = 'Frank';
+function start_game(){
+    send_message(player + ' with ' +symbol + ' Go First')
+}
 
+function send_message(message) {
+    $('.who_turn').text(message);
+}
+function next_move(square) {
+    square.innerText = symbol;
+    switch_turn();
+}
+
+function switch_turn(){
+    if (symbol === 'X'){
+        symbol = 'O';
+        player = 'Janie'
+
+    }
+    else {
+        symbol = 'X';
+        player = 'Frank'
+    }
+    send_message(player + "It's " + symbol + " turn.");
+}
 
 /* reset game: on click game board reverts to blank*/
 function reset_game() {
@@ -156,7 +184,6 @@ function reset_game() {
     count = 0;
   /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
 }
-
     function next_move(square) {
         if(square.innerText != ""){
 
@@ -166,18 +193,7 @@ function reset_game() {
         }
     }
 
-    function switch_turn(){
-        if (symbol === 'X'){
-            symbol = 'O';
-            player1 = null;
-            player2 = '0';
-        }
-        else {
-            symbol = 'X';
-            player1 = 'X';
-            player2 = 'O';
-        }
-    }
+
 
 function create_NxN_TTTboard (N) {
 
@@ -240,4 +256,5 @@ function nxnTTT () {                            // get winning_condition array o
     var final_winning_conditions = inter2.concat(diagonal_2_winner);
     console.log("final: ", final_winning_conditions);
 }
+
 

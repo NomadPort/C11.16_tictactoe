@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -25,12 +24,16 @@
             <h1>
                 STATS
             </h1>
-
-            <p> P1 name: </p>
-            <h3> P1 - games won: </h3>
+            <h4> P1 name: </h4>
+            <h5 id="P1_name_slot"> </h5>
+            <h4> P1 - games won: </h4>
+            <h5 id="P1_games_slot"> </h5>
             <h4> P2 name: </h4>
-            <h6> P2 - games lost: </h6>
-            <h5> Games played: </h5>
+            <h5 id="P2_name_slot"> </h5>
+            <h4> P2 - games lost: </h4>
+            <h5 id="P2_games_slot"> </h5>
+            <h4> Games played: </h4>
+            <h5 id="games_played_slot"> </h5>
         </div>
 
         <div class="game_body">
@@ -51,7 +54,7 @@
             <div cell_num=7 class="cell" onclick="next_move(this);"></div>
             <div cell_num=8 class="cell" onclick="next_move(this);"></div>
 
-            <h5> </h5>
+            <h2> </h2>
         </div>
 
         <div class="right_side_panel">
