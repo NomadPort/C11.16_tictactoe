@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
     $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a number button
+    $('.game_body').click(interaction);
 
 });
 
@@ -31,14 +32,14 @@ function cell_clicked () {
 var square_template = function () {
     this.make_X = function() {
         $(this).text('X');
-    }
+    };
     this.make_O = function() {
         $(this).text('O');
-    }
+    };
     this.clearXO = function() {
         $(this).text(' ');
     }
-}
+};
 
 /*
 var player_template = function () {
@@ -56,11 +57,36 @@ var player_template = function () {
     this.increase_C_by_one();
 }
 
+
 var player1 = new player_template()
 
-player1.name = "Cung";
 
-*/
+square_template = function () {
+    this.make_X = function() {
+        $(this).text('X');
+    };
+    this.make_O = function() {
+        $(this).text('O');
+    };
+    this.clearXO = function() {
+        $(this).text(' ');
+    }
+};
+
+player_template = function () {
+    this.name = "Cung";
+    this.games_played = 3;
+    this.games_won = 4;
+    this.one_owned;
+    this.two_owned;
+    this.three_owned;
+    this.A_owned;
+    this.B_owned;
+    this.C_owned;
+    this.increase_A_by_one();
+    this.increase_B_by_one();
+    this.increase_C_by_one();
+};
 
 function start_game (){
 
@@ -70,3 +96,5 @@ function send_message(){
 
 }
 
+function interaction(p1 , p2){
+}
