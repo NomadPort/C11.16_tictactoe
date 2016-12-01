@@ -139,37 +139,39 @@ function player_template() {
     this.array;
 }
 
-    var symbol = 'X';
-    function start_game(){
-        send_message(symbol + ' Go First')
-    }
-    function send_message(msg) {
-        $('.who_turn').text(msg)
-    }
+var symbol = 'X';
+var player = 'Frank';
+function start_game(){
+    send_message(player + ' with ' +symbol + ' Go First')
+}
 
+function send_message(message) {
+    $('.who_turn').text(message);
+}
+function next_move(square) {
+    square.innerText = symbol;
+    switch_turn();
+}
+
+function switch_turn(){
+    if (symbol === 'X'){
+        symbol = 'O';
+        player = 'Janie'
+
+    }
+    else {
+        symbol = 'X';
+        player = 'Frank'
+    }
+    send_message(player + "It's " + symbol + " turn.");
+}
 
 /* reset game: on click game board reverts to blank*/
 function reset() {
     $('.cell').innerHTML = '';
 }
 
-    function next_move(square) {
-        square.innerText = symbol;
-        switch_turn();
-    }
 
-    function switch_turn(){
-        if (symbol === 'X'){
-            symbol = 'O';
-            player1 = null;
-            player2 = '0';
-        }
-        else {
-            symbol = 'X';
-            player1 = 'X';
-            player2 = 'O';
-        }
-    }
 
 function nxnTTT () {
     var n = 3;
