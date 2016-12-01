@@ -20,6 +20,7 @@ var P1_array = [];
 var P2_array = [];
 
 function cell_clicked () {
+    $(this).removeAttr('onclick');
     var fun_phrase = [" would trample a kid on Black Friday." , " runs shirtless to show off body." , " is a total brand whore." , " will find a reason to take shirt off." , " makes bed before going out 'just in case'." , " will drive 3+ hours in hopes of hooking up." , " probably buys 'likes' on instagram." , " loses keys while driving."]
     var winning_conditions = [ [0,4,8], [2,4,6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
     // there are 8 winning conditions for 3 x 3 tic tac toe
@@ -149,8 +150,8 @@ function player_template() {
 
 
 /* reset game: on click game board reverts to blank*/
-function reset() {
-    $('.cell').innerHTML = '';
+function reset_game() {
+    $('.cell').clear().click(cell_clicked());
 }
 
     function next_move(square) {
