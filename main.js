@@ -171,12 +171,29 @@ function reset() {
         }
     }
 
+function create_NxN_TTTboard (N) {
+
+    for (var x = 0; x < N; x++) {
+        console.log("crazy");
+        for (var y = 0; y < N; y++) {
+            console.log("nuts");
+            $(".game_body").append($("<div>",
+                {
+                    class: "cell"
+                }));
+        }
+        $(".game_body").append("<br>");
+    }
+}
+
 function nxnTTT () {                            // get winning_condition array of arrays for any odd number n
-    var n = 7;                                  // there will be 2n+2 arrays that are each of n length each
+    var n = 5;                                  // there will be 2n+2 arrays that are each of n length each
     var horizontal_winners = [];
     var vertical_winners = [];
     var diagonal_1_winner = [];
     var diagonal_2_winner = [];
+
+    create_NxN_TTTboard (n);
 
     for (var i=0; i < n; ++i) {                 // for horizontal rows
         horizontal_winners[i] = [];
