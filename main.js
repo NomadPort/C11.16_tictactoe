@@ -1,7 +1,6 @@
 
 $(document).ready(function () {
     $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a number button
-    $('.game_body').click(interaction);
 
 });
 var player1 =null;
@@ -131,7 +130,7 @@ function start_game (){
 function send_message(){
 
 }
-/*interation: when clicked box is filled with respective player symbols.*/
+/*interaction: when clicked box is filled with respective player symbols.*/
 function interaction(){
     $('.cell').click(function (){
         if(player1!==null){
@@ -142,4 +141,8 @@ function interaction(){
             $(this).text(O);
         }
     })
+}
+/* reset game: on click game board reverts to blank*/
+function reset() {
+    $('.cell').innerHTML = '';
 }
