@@ -4,6 +4,8 @@ $(document).ready(function () {
     $('.game_body').click(interaction);
 
 });
+var player1 =null;
+var player2 =null;
 
 var P1_array = [];
 var P1_A = 0;
@@ -129,6 +131,15 @@ function start_game (){
 function send_message(){
 
 }
-
-function interaction(p1 , p2){
+/*interation: when clicked box is filled with respective player symbols.*/
+function interaction(){
+    $('.cell').click(function (){
+        if(player1!==null){
+            console.log('player1 has clicked');
+            $(this).text(X);
+        }else{
+            console.log('player2 has clicked');
+            $(this).text(O);
+        }
+    })
 }
