@@ -20,8 +20,7 @@ var P1_array = [];
 var P2_array = [];
 
 function cell_clicked () {
-    var fun_phrase = [" wears her pants backwards.", " thinks that driving home in the rain is fun.", " can light a flame by burping.", " drives a stick shift with 3 hands.", " accelerates to a stop.", " sleeps all the time.", " thinks heavy thoughts.", " flagellates."];
-
+    var fun_phrase = [" would trample a kid on Black Friday." , " runs shirtless to show off body." , " is a total brand whore." , " will find a reason to take shirt off." , " makes bed before going out 'just in case'." , " will drive 3+ hours in hopes of hooking up." , " probably buys 'likes' on instagram." , " loses keys while driving."]
     var winning_conditions = [ [0,4,8], [2,4,6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
     // there are 8 winning conditions for 3 x 3 tic tac toe
     //   0    1    2
@@ -41,6 +40,8 @@ function cell_clicked () {
     if (whose_turn === "P1") {
         P1_array.push(num);
         var length = P1_array.length;
+        player_array = P1_array;
+
         var winner_name = P1.name;
         var loser_name = P2.name;
         whose_turn = "P2";
@@ -48,9 +49,12 @@ function cell_clicked () {
     } else {
         P2_array.push(num);
         var length = P2_array.length;
+        player_array = P2_array;
+
         var winner_name = P2.name;
         var loser_name = P1.name;
         whose_turn = "P1";
+
         console.log("num: " + num + "   P2_array: " + P2_array);
     }
 
@@ -60,10 +64,10 @@ function cell_clicked () {
             count = 0;
 
             for (var i = 0; i < length; ++i) { // go thru the player's cells
-                P1_num = P1_array[i];
+                box_num = player_array[i];
 
                 for (var n = 0; n < 3; n++) {
-                    if (P1_num === winning_conditions[m][n]) {  // see if player's cell matches a cell from the chosen winning condition
+                    if (box_num === winning_conditions[m][n]) {  // see if player's cell matches a cell from the chosen winning condition
                         count++;
                     }
 
@@ -77,7 +81,6 @@ function cell_clicked () {
                         P2.increment_games_played();
                         P2.increment_games_lost();
                         $(".stats_body p").append(P1.name);
-                        $(".stats_body h2").append(P1.games_played);
                         $(".stats_body h3").append(P1.games_won);
                         $(".stats_body h4").append(P2.name);
                         $(".stats_body h5").append(P2.games_played);
