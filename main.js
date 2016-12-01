@@ -74,9 +74,14 @@ function cell_clicked () {
 
                     console.log("m: " + m + "  n: " + n + "  cell value: " + winning_conditions[m][n] + "  count: " + count);
 
+
                     if (count === 3) {
                         var f = Math.floor(Math.random()*8);
                         $(".game_body h5").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
+                        $('.cell').prop( "onclick", null );
+                        //using jquery to remove onlick button when we have winner.
+                        $('.cell').off();
+                        //turn off click.
                         P1.increment_games_played();
                         P1.increment_games_won();
                         P2.increment_games_played();
@@ -150,21 +155,24 @@ function send_message(message) {
     $('.who_turn').text(message);
 }
 function next_move(square) {
-    square.innerText = symbol;
-    switch_turn();
+    if (square.innerText === "") {
+        square.innerText = symbol;
+        switch_turn();
+    }else {
+        return false;
+    }
 }
 
 function switch_turn(){
     if (symbol === 'X'){
         symbol = 'O';
         player = 'Janie'
-
     }
     else {
         symbol = 'X';
         player = 'Frank'
     }
-    send_message(player + "It's " + symbol + " turn.");
+    send_message(player + " 's " + symbol + " turn.");
 }
 
 /* reset game: on click game board reverts to blank*/
