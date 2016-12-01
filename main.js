@@ -1,111 +1,52 @@
 
 $(document).ready(function () {
-    $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a number button
+    $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a cell button
+    $('.game_body').click(interaction);
 
 });
+
 var player1 =null;
 var player2 =null;
 
-var P1_array = [];
-var P1_A = 0;
-var P1_B = 0;
-var P1_C = 0;
-var P1_1 = 0;
-var P1_2 = 0;
-var P1_3 = 0;
-
 function cell_clicked () {
-    var letter;
-    var number;
+    var winning_conditions = [ [0, 4, 8], [2, 4, 6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
+    // there are 8 winning conditions for 3 x 3 tic tac toe
+    //   0    1    2
+    //   3    4    5
+    //   6    7    8
 
-    var cell_index = $(this).text();
-    cell_index = cell_index.trim();         // .trim Removes white space from the string/text.
-    console.log("in cell_clicked and cell_index is: " + cell_index);
+    var P1_array = [4, 6, 7, 5, 0];
+    var length = P1_array.length;
 
-    letter = cell_index.substring(0, 1);
-    number = cell_index.substring(1);
-    console.log("letter: " + letter, " number: ", number);
+    if (length >= 3) {                      // don't check for winning condition unless player has X'd or O'd 3 cells
 
-    if (letter === "A") {
-        P1_A++;
-    } else if (letter === "B") {
-        P1_B++;
-    } else {
-        P1_C++;
-    }
+        for (var m = 0; m < 8; ++m) {       // go through each winning condition
+            count = 0;
 
-    if (number === "1") {
-        P1_1++;
-    } else if (number === "2") {
-        P1_2++;
-    } else {
-        P1_3++;
-    }
+            for (var i = 0; i < length; ++i) { // go thru the player's cells
+                P1_num = P1_array[i];
 
-}
-    /*
-        // P1_array.push(cell_index);
+                for (var n = 0; n < 3; n++) {
+                    if (P1_num === winning_conditions[m][n]) {  // see if player's cell matches a cell from the chosen winning condition
+                        count++
+                    }
 
-
-        /* console.log("numString: " + numString);
-         var isItEmpty = array1[index];
-
-         if (isItEmpty === " ") {
-         array1[index] = numString;
-         var new_h4 = $("<h4>", {
-         text: " " + array1[index] + " "
-         });
-         $(".container1 .display").append(new_h4);
-         } else {
-         array1[index] = array1[index] + numString;
-         // console.log("index: " + index + array1[index]);
-         $(".container1 .display h4:last-child").text(array1[index]);
-         }
-         */
-    // end of function number_clicked
-
-    var square_template = function () {
-        this.make_X = function () {
-            $(this).text('X');
-        };
-        this.make_O = function () {
-            $(this).text('O');
-        };
-        this.clearXO = function () {
-            $(this).text(' ');
+                    console.log("m: " + m + "  n: " + n + "  cell value: " + winning_conditions[m][n] + "  count: " + count);
+                    if (count === 3) {
+                        console.log("We have a winner!!");
+                        return;                 // if we have a winner, no need to check for winning condition any longer
+                    }
+                }
+            }
         }
-    };
-
-    /*
-     var player_template = function () {
-     this.name;
-     this.games_played;
-     this.games_won;
-     this.one_owned;
-     this.two_owned;
-     this.three_owned;
-     this.A_owned;
-     this.B_owned;
-     this.C_owned;
-     this.increase_A_by_one();
-     this.increase_B_by_one();
-     this.increase_C_by_one();
-     <<<<<<< HEAD
-     };
-     =======
-     }
-     >>>>>>> 5f84de836a4896dd5e8cb616783029a4e2f7793f
+    }
+}
 
      function interaction(p1 , p2){
      }
 
-     <<<<<<< HEAD
-
-
-
-     =======
-     var player1 = new player_template()
-
+     /*
+     var player1 = new player_template();
 
      square_template = function () {
      this.make_X = function() {
