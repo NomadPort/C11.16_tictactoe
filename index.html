@@ -7,15 +7,14 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link href="style.css" type="text/css" rel="stylesheet">
-
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
+        <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
         <script src="main.js"></script>
-
         <title>Tic Tac Toe</title>
     </head>
 
-    <body>
+    <body onload="start_game();">
         <div class="header">
             <h1>LOGO</h1>
         </div>
@@ -24,32 +23,40 @@
             <h1>
                 STATS
             </h1>
-            <button class="button" id="reset" onclick="reset()">Reset</button>
+
+            <p> </p>
+            <h2> </h2>
+            <h3> </h3>
+            <h4> </h4>
+            <h5> </h5>
+            <h6> </h6>
         </div>
 
         <div class="game_body">
             <h2 class="who_turn">
                 Who turn?
             </h2>
-
-            <div class="cell">A1</div>
-            <div class="cell">B1</div>
-            <div class="cell">C1</div>
+            <div cell_num=0 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=1 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=2 class="cell" onclick="next_move(this);"></div>
             <br>
 
-            <div class="cell">A2</div>
-            <div class="cell">B2</div>
-            <div class="cell">C2</div>
+            <div cell_num=3 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=4 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=5 class="cell" onclick="next_move(this);"></div>
             <br>
 
-            <div class="cell">A3</div>
-            <div class="cell">B3</div>
-            <div class="cell">C3</div>
+            <div cell_num=6 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=7 class="cell" onclick="next_move(this);"></div>
+            <div cell_num=8 class="cell" onclick="next_move(this);"></div>
+
+            <h5> </h5>
         </div>
 
     </body>
 
 </html>
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -87,4 +94,7 @@
         <div class="cell" onclick="next_move(this);"></div>
     </div>
 </body>
+=======
+
+>>>>>>> 534e751c14b50cb0728708f101cbbe691bea34fd
 
