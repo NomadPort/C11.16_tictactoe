@@ -32,7 +32,14 @@ var P1_array = [];
 var P2_array = [];
 
 function cell_clicked () {
-    var fun_phrase = [" would trample a kid on Black Friday." , " runs shirtless to show off body." , " is a total brand whore." , " will find a reason to take shirt off." , " makes bed before going out 'just in case'." , " will drive 3+ hours in hopes of hooking up." , " probably buys 'likes' on instagram." , " loses keys while driving."]
+    // var n=3;
+
+    var fun_phrase = [" would trample a kid on Black Friday." , " runs shirtless to show off body." , " is a total brand whore." , " will find a reason to take shirt off." , " makes bed before going out 'just in case'." , " will drive 3+ hours in hopes of hooking up." , " probably buys 'likes' on instagram." , " loses keys while driving."];
+
+    // var winning_conditions = nxnTTT (n);
+
+    // console.log("winning_conditions: ", winning_conditions);
+
     var winning_conditions = [ [0,4,8], [2,4,6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
     // there are 8 winning conditions for 3 x 3 tic tac toe
     //   0    1    2
@@ -182,8 +189,6 @@ function reset() {
     $('.cell').innerHTML = '';
 }
 
-
-
 function create_NxN_TTTboard (N) {
 
     for (var x = 0; x < N; x++) {
@@ -200,7 +205,8 @@ function create_NxN_TTTboard (N) {
 }
 
 function nxnTTT () {                            // get winning_condition array of arrays for any odd number n
-    var n = 5;                                  // there will be 2n+2 arrays that are each of n length each
+    var n = 5;
+                                                // there will be 2n+2 arrays that are each of n length each
     var horizontal_winners = [];
     var vertical_winners = [];
     var diagonal_1_winner = [];
@@ -244,6 +250,8 @@ function nxnTTT () {                            // get winning_condition array o
     console.log("inter2 = ", inter2);
     var final_winning_conditions = inter2.concat(diagonal_2_winner);
     console.log("final: ", final_winning_conditions);
+
+    // return final_winning_conditions;
 }
 
 
