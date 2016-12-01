@@ -23,6 +23,7 @@ var loser_name = P2.name;
 var P1_array = [];
 
 function cell_clicked () {
+    $(this).removeAttr('onclick');
     var fun_phrase = [" wears her pants backwards.", " thinks that driving home in the rain is fun.", " can light a flame by burping.", " drives a stick shift with 3 hands.", " accelerates to a stop.", " sleeps all the time.", " thinks heavy thoughts.", " flagellates."];
 
     var winning_conditions = [ [0,4,8], [2,4,6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
@@ -125,7 +126,7 @@ function player_template() {
 
 /* reset game: on click game board reverts to blank*/
 function reset() {
-    $('.cell').innerHTML = '';
+    $('.cell').click(".reset").innerHTML = '';
 }
 
     function next_move(square) {
