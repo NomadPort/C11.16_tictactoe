@@ -6,12 +6,10 @@ $(document).ready(function () {
     $(".header h1").click(nxnTTT);
 
 });
-
+var count;
 var whose_turn = "P_one";
-
 var player1 =null;
 var player2 =null;
-
 var P1 = new player_template();
 var P1 = {
     name:           "Frank",
@@ -32,6 +30,7 @@ var P1_array = [];
 var P2_array = [];
 
 function cell_clicked () {
+    // $(this).removeAttr('onclick');
     var fun_phrase = [" would trample a kid on Black Friday." , " runs shirtless to show off body." , " is a total brand whore." , " will find a reason to take shirt off." , " makes bed before going out 'just in case'." , " will drive 3+ hours in hopes of hooking up." , " probably buys 'likes' on instagram." , " loses keys while driving."]
     var winning_conditions = [ [0,4,8], [2,4,6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
     // there are 8 winning conditions for 3 x 3 tic tac toe
@@ -86,7 +85,9 @@ function cell_clicked () {
 
                     if (count === 3) {
                         var f = Math.floor(Math.random()*8);
+                        $('.cell').removeAttr('onclick');
                         $(".game_body h2").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
+
                         P1.increment_games_played();
                         P1.increment_games_won();
                         P2.increment_games_played();
@@ -178,9 +179,19 @@ function switch_turn(){
 }
 
 /* reset game: on click game board reverts to blank*/
-function reset() {
-    $('.cell').innerHTML = '';
+function reset_game() {
+    $('.cell').empty();
+    count = 0;
+  /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
 }
+    function next_move(square) {
+        if(square.innerText != ""){
+
+        }else {
+            square.innerText = symbol;
+            switch_turn();
+        }
+    }
 
 
 
