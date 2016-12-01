@@ -5,6 +5,9 @@ $(document).ready(function () {
 
 });
 
+var player1 =null;
+var player2 =null;
+
 function cell_clicked () {
     var winning_conditions = [ [0, 4, 8], [2, 4, 6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
     // there are 8 winning conditions for 3 x 3 tic tac toe
@@ -38,90 +41,70 @@ function cell_clicked () {
         }
     }
 }
-    /*
-    console.log("numString: " + numString);
-     var isItEmpty = array1[index];
 
-     if (isItEmpty === " ") {
-     array1[index] = numString;
-     var new_h4 = $("<h4>", {
-     text: " " + array1[index] + " "
-     });
-     $(".container1 .display").append(new_h4);
-     } else {
-     array1[index] = array1[index] + numString;
-     // console.log("index: " + index + array1[index]);
-     $(".container1 .display h4:last-child").text(array1[index]);
+     function interaction(p1 , p2){
      }
+
+     /*
+     var player1 = new player_template();
+
+     square_template = function () {
+     this.make_X = function() {
+     $(this).text('X');
+     };
+     this.make_O = function() {
+     $(this).text('O');
+     };
+     this.clearXO = function() {
+     $(this).text(' ');
+     }
+     };
+
+     player_template = function () {
+     this.name = "Cung";
+     this.games_played = 3;
+     this.games_won = 4;
+     this.one_owned;
+     this.two_owned;
+     this.three_owned;
+     this.A_owned;
+     this.B_owned;
+     this.C_owned;
+     this.increase_A_by_one();
+     this.increase_B_by_one();
+     this.increase_C_by_one();
+     };
      */
- // end of function number_clicked
 
-var square_template = function () {
-    this.make_X = function() {
-        $(this).text('X');
-    };
-    this.make_O = function() {
-        $(this).text('O');
-    };
-    this.clearXO = function() {
-        $(this).text(' ');
+    var symbol = 'X';
+    function start_game(){
+        send_message(symbol + ' Go First')
     }
-};
-
-/*
-var player_template = function () {
-    this.name;
-    this.games_played;
-    this.games_won;
-    this.one_owned;
-    this.two_owned;
-    this.three_owned;
-    this.A_owned;
-    this.B_owned;
-    this.C_owned;
-    this.increase_A_by_one();
-    this.increase_B_by_one();
-    this.increase_C_by_one();
-}
-
-var player1 = new player_template()
-
-
-square_template = function () {
-    this.make_X = function() {
-        $(this).text('X');
-    };
-    this.make_O = function() {
-        $(this).text('O');
-    };
-    this.clearXO = function() {
-        $(this).text(' ');
+    function send_message(msg) {
+        $('.who_turn').text(msg)
     }
-};
 
-player_template = function () {
-    this.name = "Cung";
-    this.games_played = 3;
-    this.games_won = 4;
-    this.one_owned;
-    this.two_owned;
-    this.three_owned;
-    this.A_owned;
-    this.B_owned;
-    this.C_owned;
-    this.increase_A_by_one();
-    this.increase_B_by_one();
-    this.increase_C_by_one();
-};
-*/
 
-function start_game (){
-
+/* reset game: on click game board reverts to blank*/
+function reset() {
+    $('.cell').innerHTML = '';
 }
 
-function send_message(){
+    function next_move(square) {
+        square.innerText = symbol;
+        switch_turn();
+    }
 
-}
+    function switch_turn(){
+        if (symbol === 'X'){
+            symbol = 'O';
+            player1 = null;
+            player2 = '0';
+        }
+        else {
+            symbol = 'X';
+            player1 = 'X';
+            player2 = 'O';
+        }
+    }
 
-function interaction(p1 , p2){
-}
