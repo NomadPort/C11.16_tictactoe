@@ -1,7 +1,6 @@
 
 $(document).ready(function () {
     $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a number button
-    $('.game_body').click(interaction);
 
 });
 var player1 =null;
@@ -152,12 +151,15 @@ function cell_clicked () {
     function switch_turn(){
         if (symbol === 'X'){
             symbol = 'O';
-            player1 = null;
-            player2 = '0';
         }
         else {
             symbol = 'X';
-            player1 = 'X';
-            player2 = 'O';
         }
+        send_message("It's " + symbol + " turn ")
     }
+
+
+
+
+
+
