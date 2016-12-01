@@ -1,7 +1,6 @@
 
 $(document).ready(function () {
     $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a number button
-    $('.game_body').click(interaction);
 
 });
 var player1 =null;
@@ -144,6 +143,12 @@ function cell_clicked () {
         $('.who_turn').text(msg)
     }
 
+
+/* reset game: on click game board reverts to blank*/
+function reset() {
+    $('.cell').innerHTML = '';
+}
+
     function next_move(square) {
         square.innerText = symbol;
         switch_turn();
@@ -161,3 +166,4 @@ function cell_clicked () {
             player2 = 'O';
         }
     }
+
