@@ -58,3 +58,29 @@ player_template = function () {
 
 function interaction(p1 , p2){
 }
+
+
+
+
+
+var symbol = 'X';
+function start_game(){
+    send_message(symbol + ' Go First')
+}
+function send_message(message) {
+    $('.who_turn').text(message)
+}
+
+function next_move(square) {
+    square.innerText = symbol;
+    switch_turn();
+}
+function switch_turn(){
+    if (symbol === 'X'){
+        symbol = 'O';
+    }
+    else {
+        symbol = 'X';
+    }
+    send_message("it's " + symbol)
+}
