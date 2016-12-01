@@ -11,6 +11,7 @@ body {
     float:left;
     left: 10%;
     top:2%;
+    background-color:   hotpink;
 
 }
 .cell {
@@ -54,5 +55,12 @@ body {
     font-size: 2em;
     font-weight:bold;
     font-family: verdana sans-serif;
+}
+
+.right_side_panel {
+    height:             60vh;
+    width:              20vw;
+    background-color:   lightyellow;
+    float:              right;
 }
 
