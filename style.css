@@ -17,7 +17,7 @@ body {
     text-align: center;
     position:relative;
     float:left;
-    left: 10%;
+    left: 5%;
     top:2%;
     background-color:   hotpink;
     opacity:    50%;
@@ -42,6 +42,7 @@ body {
     width:100%;
     height:20vh;
     background-color: #559385;
+    text-align: center;
 }
 
 .stats_body {
@@ -65,4 +66,20 @@ body {
     font-size: 2em;
     font-weight:bold;
     font-family: verdana sans-serif;
+}
+.header{
+    text-align: center;
+    font-size: 2em;
+}
+button{
+    float: right;
+    position: absolute;
+    right: 15vh;
+    top: 35vh;
+}
+.right_side_panel{
+    height: 80vh;
+    width: 15vw;
+    background-color: #559385;
+    float: right;
 }
