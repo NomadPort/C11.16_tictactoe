@@ -146,7 +146,6 @@ function next_move(square) {
         return false;
     }
 }
-
 function switch_turn(){
     if (symbol === 'X'){
         symbol = 'O';

@@ -1,0 +1,62 @@
+body{
+    background-color: #74ada0;
+}
+img{
+    height: 400px;
+    width: 300px;
+    padding: 60px;
+}
+.img_title{
+    font-size: 3em;
+}
+#cung{
+    position: absolute;
+    left: 65vw;
+    top: 10vh;
+
+    height: 400px;
+    width: 300px;
+}
+#cung_title{
+    position: absolute;
+    top: 30px;
+    left: 72vw;
+}
+#vernon{
+    position: absolute;
+    left: 35vw;
+    height: 400px;
+    width: 300px;
+    top: 10vh;
+}
+#vernon_title{
+    position: absolute;
+    top: 30px;
+    left: 41vw;
+}
+#jason{
+    position: absolute;
+    left: 5vw;
+    height: 400px;
+    width: 300px;
+    top: 10vh;
+}
+#avatar_jason{
+    position: absolute;
+    left: 33vw;
+}
+#skill_list_jason {
+    position: absolute;
+    top: 38vw;
+    left: 37vw;
+}
+#skill_list_title{
+    position: absolute;
+    top: 35vw;
+    left: 37vw;
+}
+#jason_title{
+    position: absolute;
+    top: 30px;
+    left: 11vw;
+}

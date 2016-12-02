@@ -1,14 +1,17 @@
+/**
+ * Created by Vernon on 12/2/2016.
+ */
+
 $(document).ready(function () {
-    $(".start").click(nxnTTT);
-    $('.reset').click(reset_game);
+    $(".header h1").click(nxnTTT);
 });
 
-var n = 9;
 var count;
 var whose_turn = "P_one";
 var player1 =null;
 var player2 =null;
 var winning_conditions;
+var n = 9;
 
 var P1 = new player_template();
 P1.name = "Frank";
@@ -25,21 +28,25 @@ P2.games_lost = 1;
 var P1_array = [];
 var P2_array = [];
 
+
 function create_NxN_TTTboard () {
     for (var x = 0; x < n; x++) {
+        console.log("crazy");
         for (var y = 0; y < n; y++) {
+            console.log("nuts");
             $(".game_body2").append($("<div>",
                 {
                     class: "cell",
-                    height: 85/n+"%",               // make height and width fit within the div game_body2
+                    height: 85/n+"%",
                     width:  70/n+"%",
-                    onclick:"next_move(this);",     // give cells ability to switch turns
-                    cell_num: (n*x)+y               // give each cell its own cell_num
+                    onclick:"next_move(this);",
+                    cell_num: (n*x)+y
                 }));
         }
-        $(".game_body2").append("<br>");            // start the next n cells on another row
+        $(".game_body2").append("<br>");
     }
 }
+
 function nxnTTT () {                            // get winning_condition array of arrays for any odd number n
     var horizontal_winners = [];
     var vertical_winners = [];
@@ -80,18 +87,18 @@ function nxnTTT () {                            // get winning_condition array o
 
     console.log("horizontal winners: ", horizontal_winners + "   vertical winners: ", vertical_winners + "   diagonal_1_winner: ", diagonal_1_winner + "  diagonal_2_winner: " + diagonal_2_winner);
 
-    var inter1 = horizontal_winners.concat(vertical_winners);   // begin concatenating the 4 arrays of arrays into 1 array of arrays
+    var inter1 = horizontal_winners.concat(vertical_winners);
     console.log("horiz + verti = ", inter1);
     var inter2 = inter1.concat(diagonal_1_winner);
     console.log("inter2 = ", inter2);
     winning_conditions = inter2.concat(diagonal_2_winner);
     console.log("final: ", winning_conditions);
 
-    // there will be 2n+2 arrays that are each of n length each// there will be 2n+2 arrays that are each of n length each
+    // there will be 2n+2 arrays that are each of n length each
 }
 
 function cell_clicked () {
-    var fun_phrase = [" would trample a kid on Black Friday." , " runs shirtless to show off body." , " is a total brand whore." , " will find a reason to take shirt off." , " makes bed before going out 'just in case'." , " will drive 3+ hours in hopes of hooking up." , " probably buys 'likes' on instagram." , " loses keys while driving."]; // these will be used once there a game has been won (lost)
+    var fun_phrase = [" would trample a kid on Black Friday." , " runs shirtless to show off body." , " is a total brand whore." , " will find a reason to take shirt off." , " makes bed before going out 'just in case'." , " will drive 3+ hours in hopes of hooking up." , " probably buys 'likes' on instagram." , " loses keys while driving."];
 
     console.log("winning_conditions: ", winning_conditions);
 
@@ -104,7 +111,7 @@ function cell_clicked () {
     var num = $(this).attr('cell_num');    // the number is really a string, so need to convert to a number
     num = Number(num);
 
-    if (whose_turn === "P_one") {           // each player will take ownership of the cells (pushing onto his/her array
+    if (whose_turn === "P_one") {
         P1_array.push(num);
         var length = P1_array.length;
         player_array = P1_array;
@@ -112,7 +119,6 @@ function cell_clicked () {
         var winner_name = P1.name;
         var loser_name = P2.name;
         whose_turn = "P_two";
-
         console.log("num: " + num + "   P1_array: " + P1_array);
     } else {
         P2_array.push(num);
@@ -126,7 +132,7 @@ function cell_clicked () {
         console.log("num: " + num + "   P2_array: " + P2_array);
     }
 
-    if (length >= n) {                      // don't check for winning condition unless player has X'd or O'd n cells
+    if (length >= n) {                      // don't check for winning condition unless player has X'd or O'd 3 cells
 
         for (var m = 0; m < (2*n+2); ++m) {       // go thru each winning condition
             count = 0;
@@ -223,5 +229,17 @@ function switch_turn(){
 
 /* reset game: on click game board reverts to blank*/
 function reset_game() {
-    location.reload();
+    $('.cell').empty();
+    $('.game_body').load();
+    count = 0;
+    /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
+}
+
+function next_move(square) {
+    if(square.innerText != ""){
+
+    }else {
+        square.innerText = symbol;
+        switch_turn();
+    }
 }
