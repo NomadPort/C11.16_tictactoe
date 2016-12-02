@@ -70,7 +70,7 @@ function cell_clicked () {
 
     if (length >= 3) {                      // don't check for winning condition unless player has X'd or O'd 3 cells
 
-        for (var m = 0; m < 3; ++m) {       // go thru each winning condition
+        for (var m = 0; m < 8; ++m) {       // go thru each winning condition
             count = 0;
 
             for (var i = 0; i < length; ++i) { // go thru the player's cells
@@ -80,9 +80,7 @@ function cell_clicked () {
                     if (box_num === winning_conditions[m][n]) {  // see if player's cell matches a cell from the chosen winning condition
                         count++;
                     }
-
                     console.log("m: " + m + "  n: " + n + "  cell value: " + winning_conditions[m][n] + "  count: " + count);
-
                     if (count === 3) {
                         var f = Math.floor(Math.random()*8);
                         $(".game_body h3").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
