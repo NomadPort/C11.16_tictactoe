@@ -1,8 +1,10 @@
+/**
+ * Created by Vernon on 12/1/2016.
+ */
 
 $(document).ready(function () {
     $('.game_body').click(interaction);
-    $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a cell button
-    $(".reset").click(reset_button);
+    $(".header h1").click(nxnTTT);
 
 });
 
@@ -10,6 +12,8 @@ var count;
 var whose_turn = "P_one";
 var player1 =null;
 var player2 =null;
+var winning_conditions;
+var n = 9;
 
 var P1 = new player_template();
 P1.name = "Frank";
@@ -26,12 +30,82 @@ P2.games_lost = 1;
 var P1_array = [];
 var P2_array = [];
 
+function create_NxN_TTTboard () {
+    for (var x = 0; x < n; x++) {
+        console.log("crazy");
+        for (var y = 0; y < n; y++) {
+            console.log("nuts");
+            $(".game_body2").append($("<div>",
+                {
+                    class: "cell",
+                    height: 85/n+"%",
+                    width:  70/n+"%",
+                    onclick:"next_move(this);",
+                    cell_num: (n*x)+y
+                }));
+        }
+        $(".game_body2").append("<br>");
+    }
+}
+
+function nxnTTT () {                            // get winning_condition array of arrays for any odd number n
+    // there will be 2n+2 arrays that are each of n length each
+    var horizontal_winners = [];
+    var vertical_winners = [];
+    var diagonal_1_winner = [];
+    var diagonal_2_winner = [];
+
+    create_NxN_TTTboard (n);
+
+    $(".cell").click(cell_clicked);
+
+    for (var i=0; i < n; ++i) {                 // for horizontal rows
+        horizontal_winners[i] = [];
+        for (var j=0; j < n; ++j) {
+            horizontal_winners[i].push((i*n) + j);
+        }
+    }
+
+    for (i=0; i < n; i++) {                     // for vertical columns
+        vertical_winners[i] = [];
+        for (j=0; j < n; j++) {
+            vertical_winners[i].push((j*n) + i);
+        }
+    }
+
+    for (i=0; i < 1; ++i) {
+        diagonal_1_winner[i] = [];
+        for (j=0; j < n; ++j) {                     // for diagonal going upper left corner to bottom right corner
+            diagonal_1_winner[i].push(j * (n+1));
+        }
+    }
+
+    for (i=0; i < 1; ++i) {
+        diagonal_2_winner[i] = [];
+        for (j = 0; j < n; j++) {                     // for diagonal going from bottom left corner to upper right corner
+            diagonal_2_winner[i].push((j + 1) * (n - 1));
+        }
+    }
+
+    console.log("horizontal winners: ", horizontal_winners + "   vertical winners: ", vertical_winners + "   diagonal_1_winner: ", diagonal_1_winner + "  diagonal_2_winner: " + diagonal_2_winner);
+
+    var inter1 = horizontal_winners.concat(vertical_winners);
+    console.log("horiz + verti = ", inter1);
+    var inter2 = inter1.concat(diagonal_1_winner);
+    console.log("inter2 = ", inter2);
+    winning_conditions = inter2.concat(diagonal_2_winner);
+    console.log("final: ", winning_conditions);
+
+    //return win_conditions;
+}
+
 function cell_clicked () {
+
     var fun_phrase = [" would trample a kid on Black Friday." , " runs shirtless to show off body." , " is a total brand whore." , " will find a reason to take shirt off." , " makes bed before going out 'just in case'." , " will drive 3+ hours in hopes of hooking up." , " probably buys 'likes' on instagram." , " loses keys while driving."];
 
     console.log("winning_conditions: ", winning_conditions);
 
-    var winning_conditions = [ [0,4,8], [2,4,6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
+    // var winning_conditions = [ [0,4,8], [2,4,6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
     // there are 8 winning conditions for 3 x 3 tic tac toe
     //   0    1    2
     //   3    4    5
@@ -67,22 +141,22 @@ function cell_clicked () {
         console.log("num: " + num + "   P2_array: " + P2_array);
     }
 
-    if (length >= 3) {                      // don't check for winning condition unless player has X'd or O'd 3 cells
+    if (length >= n) {                      // don't check for winning condition unless player has X'd or O'd 3 cells
 
-        for (var m = 0; m < 3; ++m) {       // go thru each winning condition
+        for (var m = 0; m < (2*n+2); ++m) {       // go thru each winning condition
             count = 0;
 
             for (var i = 0; i < length; ++i) { // go thru the player's cells
                 box_num = player_array[i];
 
-                for (var n = 0; n < 3; n++) {
-                    if (box_num === winning_conditions[m][n]) {  // see if player's cell matches a cell from the chosen winning condition
+                for (var k = 0; k < n; k++) {
+                    if (box_num === winning_conditions[m][k]) {  // see if player's cell matches a cell from the chosen winning condition
                         count++;
                     }
 
-                    console.log("m: " + m + "  n: " + n + "  cell value: " + winning_conditions[m][n] + "  count: " + count);
+                    console.log("m: " + m + "  k: " + k + "  cell value: " + winning_conditions[m][k] + "  count: " + count);
 
-                    if (count === 3) {
+                    if (count === n) {
                         var f = Math.floor(Math.random()*8);
                         $(".game_body2 h3").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
                         $('.cell').prop( "onclick", null );
@@ -107,9 +181,21 @@ function cell_clicked () {
     } // end of outer if block
 }
 
-// function interaction(p1 , p2){
-//
-// }
+function interaction(p1 , p2){
+
+}
+
+var square_template = function () {
+    this.make_X = function() {
+        $(this).text('X');
+    };
+    this.make_O = function() {
+        $(this).text('O');
+    };
+    this.clearXO = function() {
+        $(this).text(' ');
+    };
+};
 
 function player_template() {
     this.name = "No Name Yet";
@@ -139,7 +225,7 @@ function player_template() {
 var symbol = 'X';
 var player = 'Frank';
 function start_game(){
-    send_message(player + ' with ' +symbol + ' Go First');
+    send_message(player + ' with ' +symbol + ' Go First')
 }
 
 function send_message(message) {
@@ -167,22 +253,17 @@ function switch_turn(){
 }
 
 /* reset game: on click game board reverts to blank*/
-
-    //
-    // function next_move(square) {
-    //     if(square.innerText != ""){
-    //
-    //     }else {
-    //         square.innerText = symbol;
-    //         switch_turn();
-    //     }
-    // }
-
-function reset_button() {
-    // $('.cell').empty();
-    location.reload();
-    console.log('has been reset');
-
+function reset_game() {
+    $('.cell').empty();
+    $('.game_body').load();
+    count = 0;
     /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
 }
+function next_move(square) {
+    if(square.innerText != ""){
 
+    }else {
+        square.innerText = symbol;
+        switch_turn();
+    }
+}

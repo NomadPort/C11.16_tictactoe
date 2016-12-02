@@ -1,21 +1,21 @@
+body{
+    background-color: #74ada0;
+}
 header{
     height:10vw;
     width: 100vw;
-    border: 3px solid red;
+
     text-align: center;
     font-size: 2em;
-
 }
 .button{
     position: relative;
     left: 47vw;
     top: 30vh;
 }
-.description{
+.description {
     width: 40vw;
     position: relative;
     left: 30vw;
     top: 15vh;
-    border: 3px solid black;
-
 }
