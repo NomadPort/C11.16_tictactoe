@@ -14,9 +14,7 @@ header {
 .RandR_container {
     height:             50vh;
     width:              90vw;
-
     margin:             auto;
-
 }
 
 .RandR_container h1 {
@@ -27,6 +25,9 @@ header {
     height:             20vh;
     width:              90vw;
     margin:             auto;
+    position:           absolute;
+    left:               36vw;
+    top:                75vh;
 }
 
 .generic_button {
@@ -44,4 +45,11 @@ p {
     display:            inline-block;
     margin-left:        1em;
 }
-
+h1{
+    font-size:          4em;
+}
+ul{
+    list-style:         none;
+    text-align:         center;
+    font-size:          150%;
+}
