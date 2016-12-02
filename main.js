@@ -68,7 +68,7 @@ function cell_clicked () {
 
     if (length >= 3) {                      // don't check for winning condition unless player has X'd or O'd 3 cells
 
-        for (var m = 0; m < 3; ++m) {       // go thru each winning condition
+        for (var m = 0; m < 8; ++m) {       // go thru each winning condition
             count = 0;
 
             for (var i = 0; i < length; ++i) { // go thru the player's cells
