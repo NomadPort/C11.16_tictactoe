@@ -71,18 +71,25 @@ body {
     text-align: center;
     font-size: 2em;
 }
-button{
-    float: right;
-    position: absolute;
-    right: 15vh;
-    top: 35vh;
+.reset{
+    /*reset button*/
+    /*right: 15vh;*/
+    /*top: 35vh;*/
+    background-color: #001F3F;
+    width: 20vh;
+    height:10vh;
+    font-size: 16px;
+    color: white;
 }
-.right_side_panel{
-    height: 80vh;
-    width: 15vw;
-    float: right;
+.start{
+    position: static;
+    background-color: #001F3F;
+    width: 20vh;
+    height:10vh;
+    font-size: 16px;
+    color: white;
+    text-align: center;
 }
-
 @-webkit-keyframes bg {
     from, to { background: yellow; }
     33% { background: green; }
@@ -104,6 +111,5 @@ button{
     float:left;
     left: 5%;
     top:2%;
-    background-color:   hotpink;
 }
 

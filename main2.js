@@ -1,11 +1,7 @@
-/**
- * Created by Vernon on 12/1/2016.
- */
-
 $(document).ready(function () {
     $('.game_body').click(interaction);
-    $(".header h1").click(nxnTTT);
-
+    $(".start").click(nxnTTT);
+    $('.reset').click(reset_game);
 });
 
 var count;
@@ -47,7 +43,6 @@ function create_NxN_TTTboard () {
         $(".game_body2").append("<br>");
     }
 }
-
 function nxnTTT () {                            // get winning_condition array of arrays for any odd number n
     // there will be 2n+2 arrays that are each of n length each
     var horizontal_winners = [];
@@ -254,16 +249,5 @@ function switch_turn(){
 
 /* reset game: on click game board reverts to blank*/
 function reset_game() {
-    $('.cell').empty();
-    $('.game_body').load();
-    count = 0;
-    /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
-}
-function next_move(square) {
-    if(square.innerText != ""){
-
-    }else {
-        square.innerText = symbol;
-        switch_turn();
-    }
+    location.reload();
 }
