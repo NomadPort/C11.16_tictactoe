@@ -1,10 +1,12 @@
 /* This is CSS specifically for Rules and Regulations html page.  Vernon Louie */
 
+body{
+    background-color: #74ada0;
+}
 
 header {
     height:             10vh;
     width:              90vw;
-    background-color:   orange;
     margin:             auto;
     text-align:         center;
 }
@@ -12,7 +14,7 @@ header {
 .RandR_container {
     height:             50vh;
     width:              90vw;
-    background-color:   pink;
+
     margin:             auto;
 
 }
@@ -24,7 +26,6 @@ header {
 .bottom_buttons_container {
     height:             20vh;
     width:              90vw;
-    background-color:   lightblue;
     margin:             auto;
 }
 
