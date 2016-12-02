@@ -6,32 +6,37 @@ $(document).ready(function () {
     $(".header h1").click(nxnTTT);
 
 });
+
 var count;
 var whose_turn = "P_one";
 var player1 =null;
 var player2 =null;
+
 var P1 = new player_template();
-var P1 = {
-    name:           "Frank",
-    games_played:   7,
-    games_won:      3,
-    games_lost:     41
-};
+P1.name = "Frank";
+P1.games_played = 7;
+P1.games_won = 3;
+P1.games_lost = 41;
 
 var P2 = new player_template();
-var P2 = {
-    name:           "Janie",
-    games_played:   29,
-    games_won:      15,
-    games_lost:     1
-};
+P2.name = "Janie";
+P2.games_played = 29;
+P2.games_won = 15;
+P2.games_lost = 1;
 
 var P1_array = [];
 var P2_array = [];
 
 function cell_clicked () {
+    // var n=3;
+
+    var fun_phrase = [" would trample a kid on Black Friday." , " runs shirtless to show off body." , " is a total brand whore." , " will find a reason to take shirt off." , " makes bed before going out 'just in case'." , " will drive 3+ hours in hopes of hooking up." , " probably buys 'likes' on instagram." , " loses keys while driving."];
+
+    // var winning_conditions = nxnTTT (n);
+    // console.log("winning_conditions: ", winning_conditions);
+
     // $(this).removeAttr('onclick');
-    var fun_phrase = [" would trample a kid on Black Friday." , " runs shirtless to show off body." , " is a total brand whore." , " will find a reason to take shirt off." , " makes bed before going out 'just in case'." , " will drive 3+ hours in hopes of hooking up." , " probably buys 'likes' on instagram." , " loses keys while driving."]
+
     var winning_conditions = [ [0,4,8], [2,4,6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
     // there are 8 winning conditions for 3 x 3 tic tac toe
     //   0    1    2
@@ -91,15 +96,17 @@ function cell_clicked () {
                         //using jquery to remove onlick button when we have winner.
                         $('.cell').off();
                         //turn off click.
-                        // P1.increment_games_played();
-                        // P1.increment_games_won();
-                        // P2.increment_games_played();
-                        // P2.increment_games_lost();
-                        // $("#P1_name_slot").text(P1.name);
-                        // $("#P1_games_slot").text(P1.games_won);
-                        // $("#P2_name_slot").text(P2.name);
-                        // $("#P2_games_slot").text(P2.games_lost);
-                        // $("#games_played_slot").text(P2.games_played);
+
+                        console.log("P1: ", P1)
+                        P1.increment_games_played();
+                        P1.increment_games_won();
+                        P2.increment_games_played();
+                        P2.increment_games_lost();
+                        $("#P1_name_slot").text(P1.name);
+                        $("#P1_games_slot").text(P1.games_won);
+                        $("#P2_name_slot").text(P2.name);
+                        $("#P2_games_slot").text(P2.games_lost);
+                        $("#games_played_slot").text(P2.games_played);
                         return;                 // if we have a winner, no need to check for winning condition any longer
                     }
                 } // end of inner for loop
@@ -109,13 +116,9 @@ function cell_clicked () {
 }
 
 function interaction(p1 , p2){
-    var first_player_name = $(".header p").text();
-    var second_player_name = $(".header h6").text()
-    console.log("1st player name: " + first_player_name + "  2nd player name: " + second_player_name);
 
-    P1.name = first_player_name;
-    P2.name = second_player_name;
 }
+
 
 var square_template = function () {
     this.make_X = function() {
@@ -128,7 +131,7 @@ var square_template = function () {
         $(this).text(' ');
     };
 };
-
+         player_template
 function player_template() {
     this.name = "No Name Yet";
     this.turn = true;
@@ -138,10 +141,10 @@ function player_template() {
 
     this.change_turn_to_true = function() {
         this.turn = true;
-    }
+    };
     this.change_turn_to_false = function() {
         this.turn = false;
-    }
+    };
     this.increment_games_played = function() {
         this.games_played += 1;
     };
@@ -187,6 +190,7 @@ function switch_turn(){
 /* reset game: on click game board reverts to blank*/
 function reset_game() {
     $('.cell').empty();
+    $('.game_body').load();
     count = 0;
   /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
 }
@@ -198,8 +202,6 @@ function reset_game() {
             switch_turn();
         }
     }
-
-
 
 function create_NxN_TTTboard (N) {
 
@@ -217,7 +219,8 @@ function create_NxN_TTTboard (N) {
 }
 
 function nxnTTT () {                            // get winning_condition array of arrays for any odd number n
-    var n = 5;                                  // there will be 2n+2 arrays that are each of n length each
+    var n = 5;
+                                                // there will be 2n+2 arrays that are each of n length each
     var horizontal_winners = [];
     var vertical_winners = [];
     var diagonal_1_winner = [];
@@ -261,6 +264,8 @@ function nxnTTT () {                            // get winning_condition array o
     console.log("inter2 = ", inter2);
     var final_winning_conditions = inter2.concat(diagonal_2_winner);
     console.log("final: ", final_winning_conditions);
+
+    // return final_winning_conditions;
 }
 
 
