@@ -1,6 +1,5 @@
 
 $(document).ready(function () {
-    // $('.game_body').click(interaction);
     $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a cell button
     $(".reset").click(reset_button);
 
@@ -29,13 +28,15 @@ var P2_array = [];
 function cell_clicked () {
     var fun_phrase = [" would trample a kid on Black Friday." , " runs shirtless to show off body." , " is a total brand whore." , " will find a reason to take shirt off." , " makes bed before going out 'just in case'." , " will drive 3+ hours in hopes of hooking up." , " probably buys 'likes' on instagram." , " loses keys while driving."];
 
-    console.log("winning_conditions: ", winning_conditions);
-
     var winning_conditions = [ [0,4,8], [2,4,6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
     // there are 8 winning conditions for 3 x 3 tic tac toe
     //   0    1    2
     //   3    4    5
     //   6    7    8
+
+    console.log("winning_conditions: ", winning_conditions);
+
+
 
     $("#P1_name_slot").text(P1.name);
     $("#P1_games_slot").text(P1.games_won);
@@ -106,10 +107,6 @@ function cell_clicked () {
         } // end of outer for loop
     } // end of outer if block
 }
-
-// function interaction(p1 , p2){
-//
-// }
 
 function player_template() {
     this.name = "No Name Yet";
