@@ -84,7 +84,7 @@ function cell_clicked () {
 
                     if (count === 3) {
                         var f = Math.floor(Math.random()*8);
-                        $(".game_body h2").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
+                        $(".game_body h3").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
                         $('.cell').prop( "onclick", null );
                         //using jquery to remove onlick button when we have winner.
                         $('.cell').off();
