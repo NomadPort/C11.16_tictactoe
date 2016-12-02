@@ -86,20 +86,20 @@ function cell_clicked () {
 
                     if (count === 3) {
                         var f = Math.floor(Math.random()*8);
-                        $(".game_body h5").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
+                        $(".game_body h3").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
                         $('.cell').prop( "onclick", null );
                         //using jquery to remove onlick button when we have winner.
                         $('.cell').off();
                         //turn off click.
-                        P1.increment_games_played();
-                        P1.increment_games_won();
-                        P2.increment_games_played();
-                        P2.increment_games_lost();
-                        $("#P1_name_slot").text(P1.name);
-                        $("#P1_games_slot").text(P1.games_won);
-                        $("#P2_name_slot").text(P2.name);
-                        $("#P2_games_slot").text(P2.games_lost);
-                        $("#games_played_slot").text(P2.games_played);
+                        // P1.increment_games_played();
+                        // P1.increment_games_won();
+                        // P2.increment_games_played();
+                        // P2.increment_games_lost();
+                        // $("#P1_name_slot").text(P1.name);
+                        // $("#P1_games_slot").text(P1.games_won);
+                        // $("#P2_name_slot").text(P2.name);
+                        // $("#P2_games_slot").text(P2.games_lost);
+                        // $("#games_played_slot").text(P2.games_played);
                         return;                 // if we have a winner, no need to check for winning condition any longer
                     }
                 } // end of inner for loop
@@ -262,5 +262,6 @@ function nxnTTT () {                            // get winning_condition array o
     var final_winning_conditions = inter2.concat(diagonal_2_winner);
     console.log("final: ", final_winning_conditions);
 }
+
 
 
