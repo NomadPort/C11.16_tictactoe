@@ -181,6 +181,7 @@ function switch_turn(){
 /* reset game: on click game board reverts to blank*/
 function reset_game() {
     $('.cell').empty();
+    $('.game_body').load();
     count = 0;
   /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
 }
