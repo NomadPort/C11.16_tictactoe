@@ -36,8 +36,6 @@ function cell_clicked () {
 
     console.log("winning_conditions: ", winning_conditions);
 
-
-
     $("#P1_name_slot").text(P1.name);
     $("#P1_games_slot").text(P1.games_won);
     $("#P2_name_slot").text(P2.name);
