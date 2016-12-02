@@ -1,7 +1,8 @@
 
 $(document).ready(function () {
-    $(".cell").click(cell_clicked);
     $('.game_body').click(interaction);
+    $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a cell button
+    $(".reset").click(reset_button);
 
 });
 
@@ -106,9 +107,9 @@ function cell_clicked () {
     } // end of outer if block
 }
 
-function interaction(p1 , p2){
-
-}
+// function interaction(p1 , p2){
+//
+// }
 
 function player_template() {
     this.name = "No Name Yet";
@@ -138,7 +139,7 @@ function player_template() {
 var symbol = 'X';
 var player = 'Frank';
 function start_game(){
-    send_message(player + ' with ' +symbol + ' Go First')
+    send_message(player + ' with ' +symbol + ' Go First');
 }
 
 function send_message(message) {
@@ -166,21 +167,22 @@ function switch_turn(){
 }
 
 /* reset game: on click game board reverts to blank*/
-function reset_game() {
-    $('.cell').empty();
-    $('.game_body').load();
-    count = 0;
-  /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
+
+    //
+    // function next_move(square) {
+    //     if(square.innerText != ""){
+    //
+    //     }else {
+    //         square.innerText = symbol;
+    //         switch_turn();
+    //     }
+    // }
+
+function reset_button() {
+    // $('.cell').empty();
+    location.reload();
+    console.log('has been reset');
+
+    /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
 }
-    function next_move(square) {
-        if(square.innerText != ""){
-
-        }else {
-            square.innerText = symbol;
-            switch_turn();
-        }
-    }
-
-
-
 
