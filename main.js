@@ -78,9 +78,7 @@ function cell_clicked () {
                     if (box_num === winning_conditions[m][n]) {  // see if player's cell matches a cell from the chosen winning condition
                         count++;
                     }
-
                     console.log("m: " + m + "  n: " + n + "  cell value: " + winning_conditions[m][n] + "  count: " + count);
-
                     if (count === 3) {
                         var f = Math.floor(Math.random()*8);
                         $(".game_body h3").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
