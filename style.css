@@ -83,3 +83,16 @@ button{
     background-color: #559385;
     float: right;
 }
+
+/* for index2 */
+.game_body2 {
+    width: 60vw;
+    height: 60vh;
+    text-align: center;
+    position:relative;
+    float:left;
+    left: 5%;
+    top:2%;
+    background-color:   hotpink;
+}
+
