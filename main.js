@@ -36,8 +36,6 @@ function cell_clicked () {
 
     console.log("winning_conditions: ", winning_conditions);
 
-
-
     $("#P1_name_slot").text(P1.name);
     $("#P1_games_slot").text(P1.games_won);
     $("#P2_name_slot").text(P2.name);
@@ -70,7 +68,7 @@ function cell_clicked () {
 
     if (length >= 3) {                      // don't check for winning condition unless player has X'd or O'd 3 cells
 
-        for (var m = 0; m < 3; ++m) {       // go thru each winning condition
+        for (var m = 0; m < 8; ++m) {       // go thru each winning condition
             count = 0;
 
             for (var i = 0; i < length; ++i) { // go thru the player's cells
