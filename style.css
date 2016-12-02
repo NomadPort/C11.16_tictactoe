@@ -82,14 +82,27 @@ button{
     width: 15vw;
     float: right;
 }
+
 @-webkit-keyframes bg {
     from, to { background: yellow; }
     33% { background: green; }
     60% { background: blue; }
 }
 .cell {
-    font-size:200%;
-    background:yellow;
-    -webkit-animation:bg 5s infinite;
+    font-size: 200%;
+    background: yellow;
+    -webkit-animation: bg 5s infinite;
+}
+
+/* for index2 */
+.game_body2 {
+    width: 60vw;
+    height: 60vh;
+    text-align: center;
+    position:relative;
+    float:left;
+    left: 5%;
+    top:2%;
+    background-color:   hotpink;
 }
 

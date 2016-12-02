@@ -1,9 +1,14 @@
 $(document).ready(function () {
+<<<<<<< HEAD
 
     $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a cell button
     // $('.game_body').click(interaction);
     // $(".header h1").click(nxnTTT);
     $(".reset").click(reset_button);
+=======
+    $('.game_body').click(interaction);
+    $(".header h1").click(nxnTTT);
+>>>>>>> master
 
 });
 
@@ -34,8 +39,6 @@ function cell_clicked () {
 
     // var winning_conditions = nxnTTT (n);
     // console.log("winning_conditions: ", winning_conditions);
-
-    // $(this).removeAttr('onclick');
 
     var winning_conditions = [ [0,4,8], [2,4,6], [0,1,2], [3,4,5], [0,3,6], [1,4,7], [2,5,8], [6,7,8] ];
     // there are 8 winning conditions for 3 x 3 tic tac toe
@@ -206,17 +209,22 @@ function create_NxN_TTTboard (N) {
         console.log("crazy");
         for (var y = 0; y < N; y++) {
             console.log("nuts");
-            $(".game_body").append($("<div>",
+            $(".game_body2").append($("<div>",
                 {
-                    class: "cell"
+                    class: "cell",
+                    height: 85/N+"%",
+                    width:  70/N+"%",
+                    onclick:"next_move(this);",
+                    cell_num: (N*x)+y
                 }));
         }
-        $(".game_body").append("<br>");
+        $(".game_body2").append("<br>");
+
     }
 }
 
 function nxnTTT () {                            // get winning_condition array of arrays for any odd number n
-    var n = 5;
+    var n = 3;
                                                 // there will be 2n+2 arrays that are each of n length each
     var horizontal_winners = [];
     var vertical_winners = [];
@@ -224,6 +232,8 @@ function nxnTTT () {                            // get winning_condition array o
     var diagonal_2_winner = [];
 
     create_NxN_TTTboard (n);
+
+    $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a cell button
 
     for (var i=0; i < n; ++i) {                 // for horizontal rows
         horizontal_winners[i] = [];
