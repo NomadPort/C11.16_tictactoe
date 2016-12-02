@@ -1,7 +1,14 @@
-
 $(document).ready(function () {
+<<<<<<< HEAD
+
+    $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a cell button
+    // $('.game_body').click(interaction);
+    // $(".header h1").click(nxnTTT);
+    $(".reset").click(reset_button);
+=======
     $('.game_body').click(interaction);
     $(".header h1").click(nxnTTT);
+>>>>>>> master
 
 });
 
@@ -93,7 +100,7 @@ function cell_clicked () {
                         $('.cell').off();
                         //turn off click.
 
-                        console.log("P1: ", P1)
+                        console.log("P1: ", P1);
                         P1.increment_games_played();
                         P1.increment_games_won();
                         P2.increment_games_played();
@@ -111,9 +118,9 @@ function cell_clicked () {
     } // end of outer if block
 }
 
-function interaction(p1 , p2){
-
-}
+// function interaction(p1 , p2){
+//
+// }
 
 
 var square_template = function () {
@@ -156,8 +163,8 @@ function player_template() {
 var symbol = 'X';
 var player = 'Frank';
 function start_game(){
-    send_message(player + ' with ' +symbol + ' Go First')
-}
+    send_message(player + ' with ' +symbol + ' Go First');
+};
 
 function send_message(message) {
     $('.who_turn').text(message);
@@ -184,20 +191,17 @@ function switch_turn(){
 }
 
 /* reset game: on click game board reverts to blank*/
-function reset_game() {
-    $('.cell').empty();
-    $('.game_body').load();
-    count = 0;
-  /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
-}
-    function next_move(square) {
-        if(square.innerText != ""){
 
-        }else {
-            square.innerText = symbol;
-            switch_turn();
-        }
-    }
+    //
+    // function next_move(square) {
+    //     if(square.innerText != ""){
+    //
+    //     }else {
+    //         square.innerText = symbol;
+    //         switch_turn();
+    //     }
+    // }
+
 
 function create_NxN_TTTboard (N) {
 
@@ -258,18 +262,25 @@ function nxnTTT () {                            // get winning_condition array o
             diagonal_2_winner[i].push((j + 1) * (n - 1));
         }
     }
-
-    console.log("horizontal winners: ", horizontal_winners + "   vertical winners: ", vertical_winners + "   diagonal_1_winner: ", diagonal_1_winner + "  diagonal_2_winner: " + diagonal_2_winner);
-
-    var inter1 = horizontal_winners.concat(vertical_winners);
-    console.log("horiz + verti = ", inter1);
-    var inter2 = inter1.concat(diagonal_1_winner);
-    console.log("inter2 = ", inter2);
-    var final_winning_conditions = inter2.concat(diagonal_2_winner);
-    console.log("final: ", final_winning_conditions);
+}
+    // console.log("horizontal winners: ", horizontal_winners + "   vertical winners: ", vertical_winners + "   diagonal_1_winner: ", diagonal_1_winner + "  diagonal_2_winner: " + diagonal_2_winner);
+    //
+    // var inter1 = horizontal_winners.concat(vertical_winners);
+    // console.log("horiz + verti = ", inter1);
+    // var inter2 = inter1.concat(diagonal_1_winner);
+    // console.log("inter2 = ", inter2);
+    // var final_winning_conditions = inter2.concat(diagonal_2_winner);
+    // console.log("final: ", final_winning_conditions);
 
     // return final_winning_conditions;
+
+
+function reset_button() {
+    // $('.cell').empty();
+    location.reload();
+
+    console.log('has been reset');
+
+    /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
 }
-
-
 

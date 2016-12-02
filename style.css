@@ -3,12 +3,20 @@ h5 {
 }
 
 .inlineBlock {
-    display:    inline-block;
+    display:inline-block;
 }
-
+@keyframes pulse {
+    0% {
+        background-color: #001F3F;    }
+    100% {
+        background-color: #FF4136;
+    }
+}
 body {
     width: 100vw;
     height:100vh;
+    background-color: #74ada0;
+    animation: pulse 5s;
 }
 
 .game_body {
@@ -19,10 +27,7 @@ body {
     float:left;
     left: 5%;
     top:2%;
-    background-color:   hotpink;
-    opacity:    50%;
 }
-
 .cell {
     border: solid black;
     display: inline-block;
@@ -37,22 +42,17 @@ body {
     font-family: verdana sans-serif;
     vertical-align: text-top;
 }
-
 .header {
     width:100%;
     height:20vh;
-    background-color: #559385;
     text-align: center;
 }
-
 .stats_body {
-    background-color: #559385;
     height:80vh;
     width: 15vw;
     position:relative;
     float:left;
 }
-
 /*this is for  index 2*/
 .cell2 {
     border: solid black;
@@ -80,8 +80,18 @@ button{
 .right_side_panel{
     height: 80vh;
     width: 15vw;
-    background-color: #559385;
     float: right;
+}
+
+@-webkit-keyframes bg {
+    from, to { background: yellow; }
+    33% { background: green; }
+    60% { background: blue; }
+}
+.cell {
+    font-size: 200%;
+    background: yellow;
+    -webkit-animation: bg 5s infinite;
 }
 
 /* for index2 */
