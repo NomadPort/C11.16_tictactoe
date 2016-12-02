@@ -6,25 +6,23 @@ $(document).ready(function () {
     $(".header h1").click(nxnTTT);
 
 });
+
 var count;
 var whose_turn = "P_one";
 var player1 =null;
 var player2 =null;
+
 var P1 = new player_template();
-var P1 = {
-    name:           "Frank",
-    games_played:   7,
-    games_won:      3,
-    games_lost:     41
-};
+P1.name = "Frank";
+P1.games_played = 7;
+P1.games_won = 3;
+P1.games_lost = 41;
 
 var P2 = new player_template();
-var P2 = {
-    name:           "Janie",
-    games_played:   29,
-    games_won:      15,
-    games_lost:     1
-};
+P2.name = "Janie";
+P2.games_played = 29;
+P2.games_won = 15;
+P2.games_lost = 1;
 
 var P1_array = [];
 var P2_array = [];
@@ -98,6 +96,7 @@ function cell_clicked () {
                         //using jquery to remove onlick button when we have winner.
                         $('.cell').off();
                         //turn off click.
+                        console.log("P1: ", P1)
                         P1.increment_games_played();
                         P1.increment_games_won();
                         P2.increment_games_played();
@@ -116,13 +115,9 @@ function cell_clicked () {
 }
 
 function interaction(p1 , p2){
-    var first_player_name = $(".header p").text();
-    var second_player_name = $(".header h6").text()
-    console.log("1st player name: " + first_player_name + "  2nd player name: " + second_player_name);
 
-    P1.name = first_player_name;
-    P2.name = second_player_name;
 }
+
 
 var square_template = function () {
     this.make_X = function() {
@@ -135,7 +130,7 @@ var square_template = function () {
         $(this).text(' ');
     };
 };
-
+         player_template
 function player_template() {
     this.name = "No Name Yet";
     this.turn = true;
@@ -145,10 +140,10 @@ function player_template() {
 
     this.change_turn_to_true = function() {
         this.turn = true;
-    }
+    };
     this.change_turn_to_false = function() {
         this.turn = false;
-    }
+    };
     this.increment_games_played = function() {
         this.games_played += 1;
     };
