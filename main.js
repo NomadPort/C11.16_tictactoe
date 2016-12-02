@@ -83,7 +83,7 @@ function cell_clicked () {
 
                     if (count === 3) {
                         var f = Math.floor(Math.random()*8);
-                        $(".game_body2 h3").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
+                        $(".game_body h3").text(winner_name + " has won!  " + loser_name + fun_phrase[f]);
                         $('.cell').prop( "onclick", null );
                         //using jquery to remove onlick button when we have winner.
                         $('.cell').off();
@@ -174,10 +174,9 @@ function switch_turn(){
     // }
 
 function reset_button() {
-    // $('.cell').empty();
-    location.reload();
+     $('.cell').empty();
+    // location.reload();
     console.log('has been reset');
-
-    /*  $('.cell').attr('onclick', 'next_move(.cell);');*/
+    $('.cell').attr('onclick', 'next_move(.cell);');
 }
 

@@ -87,6 +87,7 @@ button{
     from, to { background: yellow; }
     33% { background: green; }
     60% { background: blue; }
+    60% { background: blueviolet; }
 }
 .cell {
     font-size: 200%;
