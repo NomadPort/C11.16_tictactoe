@@ -30,39 +30,9 @@
         <script src="//js.leapmotion.com/leap-0.6.4.js"></script>
         <script src="//js.leapmotion.com/leap-plugins-0.1.12.js"></script>
         <script src="script.js"></script>
+        <script src="L_motion.js"></script>
         <script>
-            // initialize function initializes the leap motion controller
-            // imgSrc1 is a string that holds the path or url to an image
-            // width1 and height1 are strings that sets the width and heights of the respective image. e.g. '250px' or '1.5em';
-            // sensitivity a number that determines how sensitive the leap motion images are to your movement.
-            // for the sensitivity 1 is normal. 0.5 is half as sensitive. 2 is twice as sensitive, etc.
-            // imgSrc2, width2, and height2 are optional parameters that create a second image on screen for a second hand
-            // if the last 3 parameters aren't passed in, then only one image ever pops up
 
-
-            var leapMotion = initialize("job_photo_man.png", "5em", "5em", 1);
-
-            // the initialize function also returns an object that holds functions for the different gestures
-            // for this example ive stored the return object in a variable called leapMotion
-            // the returned object also holds an items array that holds up 2 different items each representing a hand
-            // for this example the items array would be leapMotion.array with leapMotionarray[0] being the first item
-            // each item also holds a position array that holds 2 values.
-            // the 0th index of the position array holds the x position of the item relative to the left of the screen
-            // the 1st index of the position array holds the y position of the item relative to the top of the screen
-
-            // the methods below are the functions that run for each respective gesture. can be custom made to do whatever
-            leapMotion.circle = function() {
-                $(".game_body").css("background-color","lightblue");
-            };
-            leapMotion.keyTap = function() {
-                $(".game_body2").css("background-color","purple");
-            };
-            leapMotion.screenTap = function() {
-                $(".game_body2").css("background-color","lightyellow");
-            };
-            leapMotion.swipe = function() {
-                $(".game_body2").css("background-color","lightpink");
-            };
         </script>
 
     </body>
