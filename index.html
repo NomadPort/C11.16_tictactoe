@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -10,15 +10,13 @@
         <link href="style.css" type="text/css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
         <script src="main.js"></script>
-        <title>Tic Tac Toe</title>
+        <title>TIC TAC TOE</title>
     </head>
 
     <body onload="start_game();">
         <div class="header">
-                <h1>Tic Tac Toe</h1>
-
+                <h1>TIC TAC TOE</h1>
         </div>
-
         <div class="stats_body">
             <h1>
                 STATS
@@ -34,7 +32,6 @@
             <h4> Games played: </h4>
             <h5 id="games_played_slot"> </h5>
         </div>
-
         <div class="game_body">
             <h2 class="who_turn">
                 Who turn?
@@ -53,11 +50,13 @@
             <div cell_num=7 class="cell" onclick="next_move(this);"></div>
             <div cell_num=8 class="cell" onclick="next_move(this);"></div>
             <h3></h3>
-            <!--<h2 class="loser_comment"> </h2>-->
         </div>
         <div class="right_side_panel">
                 <button class="reset">RESET</button>
         </div>
+        <button class="advance_game"><a href="index2.html">
+            CLICK FOR ADVANCE GAME</a>
+        </button>
     </body>
 
 </html>

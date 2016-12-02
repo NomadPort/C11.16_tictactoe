@@ -146,7 +146,6 @@ function next_move(square) {
         return false;
     }
 }
-
 function switch_turn(){
     if (symbol === 'X'){
         symbol = 'O';
@@ -172,9 +171,9 @@ function switch_turn(){
     // }
 
 function reset_button() {
-     $('.cell').empty();
-    // location.reload();
+     // $('.cell').empty();
+    location.reload();
     console.log('has been reset');
-    $('.cell').attr('onclick', 'next_move(.cell);');
+    // $('.cell').attr('onclick', 'next_move(.cell);');
 }
 

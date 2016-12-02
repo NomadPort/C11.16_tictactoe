@@ -5,28 +5,44 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
         <script src="main2.js"></script>
         <link href="style.css" type="text/css" rel="stylesheet">
         <title>Tic Tac Toe 2</title>
     </head>
-
-    <body>
+    <body onload="start_game();">
         <div class="header">
-            <h1>LOGO</h1>
+            <h1>ADVANCE TIC TAC TOE</h1>
         </div>
-
         <div class="stats_body">
+            <h1>STATS</h1>
+            <h4> P1 name: </h4>
+            <h5 id="P1_name_slot"></h5>
+            <h4> P1 - games won: </h4>
+            <h5 id="P1_games_slot"> </h5>
+            <h4> P2 name: </h4>
+            <h5 id="P2_name_slot"> </h5>
+            <h4> P2 - games lost: </h4>
+            <h5 id="P2_games_slot"> </h5>
+            <h4> Games played: </h4>
+            <h5 id="games_played_slot"></h5>
             <h1></h1>
         </div>
-
         <div class="game_body2">
-            <h2>N x N Tic Tac Toe - Press on the word LOGO to begin</h2>
+            <h2>
+            </h2>
             <h3></h3>
         </div>
-
+        <div class="right_side_panel">
+            <button class="reset">RESET</button>
+        </div>
+        <button class="start">
+            START
+        </button>
+        <div>
+            <h3></h3>
+        </div>
     </body>
 </html>
 
