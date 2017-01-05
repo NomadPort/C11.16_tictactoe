@@ -1,9 +1,11 @@
+/* This is for the N x N tic tac toe.  Index2.html uses this as its base js file. */
+
 $(document).ready(function () {
     $(".start").click(nxnTTT);
     $('.reset').click(reset_game);
 });
 
-var n = 9;
+var n = 13;
 var count;
 var whose_turn = "P_one";
 var player1 =null;
@@ -39,7 +41,36 @@ function create_NxN_TTTboard () {
         }
         $(".game_body2").append("<br>");            // start the next n cells on another row
     }
+
 }
+    0,1     2,3     4,5     6,7     8,9
+                                            i * (n-m+1) + j
+i:  0,0     1,1     2,2     3,3     4,4
+
+j:  0,1     0,1     0,1     0,1     0,1
+
+    0,0     +2,+2   +4,+4   +6,+6   +8,+8
+
+function mWinsInNxN (m, n) {
+    for (var i=0; i < n; ++i) {                 // for horizontal rows
+        horizontal_winners[i] = [];
+        for (var j=0; j <= (n-m); ++j) {
+            for (var k=j; k < (m+j); ++k) {
+                horizontal_winners[j + i + (n-m)].push((i*n) + k);
+            }
+        }
+    }
+
+    for (i=0; i < n; i++) {                     // for vertical columns
+        vertical_winners[i] = [];
+        for (j=0; j <= (n-m); j++) {
+            for (var k=j; k < (m+j); ++k)
+            vertical_winners[2*i+j].push(k*n + j);
+        }
+    }
+
+}
+
 function nxnTTT () {                            // get winning_condition array of arrays for any odd number n
     var horizontal_winners = [];
     var vertical_winners = [];
@@ -87,7 +118,7 @@ function nxnTTT () {                            // get winning_condition array o
     winning_conditions = inter2.concat(diagonal_2_winner);
     console.log("final: ", winning_conditions);
 
-    // there will be 2n+2 arrays that are each of n length each// there will be 2n+2 arrays that are each of n length each
+    // there will be 2n+2 arrays that are each of n length each
 }
 
 function cell_clicked () {

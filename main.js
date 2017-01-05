@@ -1,26 +1,24 @@
+// This is for the basic 3 x 3 tic tac toe.  Index.html uses this as the base js file.
 
 $(document).ready(function () {
     $(".cell").click(cell_clicked);         // Call function cell_clicked when clicking on a cell button
-    $(".reset").click(reset_button);
-
+    $(".reset").click(reset_button);        // To reset the game
 });
 
-var count;
+var count;                  // for use in function cell_clicked to count if we reach the winning condition
 var whose_turn = "P_one";
-var player1 =null;
-var player2 =null;
 
 var P1 = new player_template();
 P1.name = "Frank";
-P1.games_played = 7;
-P1.games_won = 3;
-P1.games_lost = 41;
+P1.games_played = 0;
+P1.games_won = 0;
+P1.games_lost = 0;
 
 var P2 = new player_template();
 P2.name = "Janie";
-P2.games_played = 29;
-P2.games_won = 15;
-P2.games_lost = 1;
+P2.games_played = 0;
+P2.games_won = 0;
+P2.games_lost = 0;
 
 var P1_array = [];
 var P2_array = [];
@@ -53,6 +51,7 @@ function cell_clicked () {
         var winner_name = P1.name;
         var loser_name = P2.name;
         whose_turn = "P_two";
+
         console.log("num: " + num + "   P1_array: " + P1_array);
     } else {
         P2_array.push(num);
@@ -126,7 +125,6 @@ function player_template() {
     this.increment_games_lost = function() {
         this.games_lost += 1;
     };
-    this.array;
 }
 
 var symbol = 'X';
@@ -157,18 +155,6 @@ function switch_turn(){
     }
     send_message(player + " 's " + symbol + " turn.");
 }
-
-/* reset game: on click game board reverts to blank*/
-
-    //
-    // function next_move(square) {
-    //     if(square.innerText != ""){
-    //
-    //     }else {
-    //         square.innerText = symbol;
-    //         switch_turn();
-    //     }
-    // }
 
 function reset_button() {
      // $('.cell').empty();
