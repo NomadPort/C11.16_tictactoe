@@ -166,6 +166,10 @@ function cell_clicked () {
             } // end of middle for loop
         } // end of outer for loop
     } // end of outer if block
+    var draw_number = Math.ceil((n * n)/2);
+    if(P1_array.length === draw_number || P2_array.length.length === draw_number){
+        $(".game_container h3").text("DRAW");
+    }
 }
 
 var symbol = 'X';
