@@ -1,62 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+    <meta charset="UTF-8">
+    <title>TicTacToe</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href="https://code.jquery.com/jquery-2.1.4.min.js">
+    <link href="http://learning-fuze.github.io/memory_match/v0.1/script.js">
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="main.js"></script>
+</head>
+<body class=container-fluid>
+<div class="header text-center">
+    <h1>Tic Tac Toe</h1>
+</div>
+<!--   stats-->
+<div class="col-xs-2 stats">
+    <h2 class="text-center">Game Play</h2>
+    <div>
+        <h5 class="col-xs-8 ">Frank</h5>
+        <h5 class="col-xs-4 frank_stat  panel text-center">0</h5>
+    </div>
+    <div>
+        <h5 class="col-xs-8 ">Janie</h5>
+        <h5 class="col-xs-4 janie_stat  panel text-center">0</h5>
+    </div>
+    <div>
+        <button class="btn btn-default col-xs-12 restart">Restart</button>
+    </div>
+    <div>
+        <h4 class="who_turn text-center"></h4>
+    </div>
+</div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <link href="style.css" type="text/css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-        <script src="main.js"></script>
-        <title>TIC TAC TOE</title>
-    </head>
+<!--    gamebody-->
+<div class="col-xs-8 game_container" >
+    <div class="game_body2"></div>
+    <h3 class="text-center"></h3>
+</div>
 
-    <body onload="start_game();">
-        <div class="header">
-                <h1>TIC TAC TOE</h1>
-        </div>
-        <div class="stats_body">
-            <h1>
-                STATS
-            </h1>
-            <h4> P1 name: </h4>
-            <h5 id="P1_name_slot"> </h5>
-            <h4> P1 - games won: </h4>
-            <h5 id="P1_games_slot"> </h5>
-            <h4> P2 name: </h4>
-            <h5 id="P2_name_slot"> </h5>
-            <h4> P2 - games lost: </h4>
-            <h5 id="P2_games_slot"> </h5>
-            <h4> Games played: </h4>
-            <h5 id="games_played_slot"> </h5>
-        </div>
-        <div class="game_body">
-            <h2 class="who_turn">
-                Who turn?
-            </h2>
-            <div cell_num=0 class="cell" onclick="next_move(this);"></div>
-            <div cell_num=1 class="cell" onclick="next_move(this);"></div>
-            <div cell_num=2 class="cell" onclick="next_move(this);"></div>
-            <br>
-
-            <div cell_num=3 class="cell" onclick="next_move(this);"></div>
-            <div cell_num=4 class="cell" onclick="next_move(this);"></div>
-            <div cell_num=5 class="cell" onclick="next_move(this);"></div>
-            <br>
-
-            <div cell_num=6 class="cell" onclick="next_move(this);"></div>
-            <div cell_num=7 class="cell" onclick="next_move(this);"></div>
-            <div cell_num=8 class="cell" onclick="next_move(this);"></div>
-            <h3></h3>
-        </div>
-        <div class="right_side_panel">
-                <button class="reset">RESET</button>
-        </div>
-        <button class="advance_game"><a href="index2.html">
-            CLICK FOR ADVANCE GAME</a>
-        </button>
-    </body>
-
+    <!--    sidebar-->
+<div class="col-xs-2 sidebar text-center">
+    <h2>Sidebar</h2>
+    <button class=" btn btn-default col-xs-12 start_three" value="3">Start 3x3</button>
+    <button class=" btn btn-default col-xs-12 start_six" value="6">Start 6x6</button>
+    <a class="col-xs-12 gif_picture" href=""><img src="http://www.gifmania.co.uk/Objects/Toys/Board-Games/Tic-Tac-Toe/Noughts-Crosses-54398.gif" alt="tic-tac-toe - GIFMANIA" /></a>
+</div>
+</body>
 </html>

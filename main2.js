@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('.reset').click(reset_game);
 });
 
-var n = 9;
+var n = 3;
 var count;
 var whose_turn = "P_one";
 var player1 =null;
@@ -25,19 +25,20 @@ P2.games_lost = 1;
 var P1_array = [];
 var P2_array = [];
 
-function create_NxN_TTTboard () {
+function  create_NxN_TTTboard(){
+    console.log('create board clicked');
     for (var x = 0; x < n; x++) {
         for (var y = 0; y < n; y++) {
-            $(".game_body2").append($("<div>",
+            $(".game_body2").append($("<button>",
                 {
-                    class: "cell",
-                    height: 85/n+"%",               // make height and width fit within the div game_body2
-                    width:  70/n+"%",
-                    onclick:"next_move(this);",     // give cells ability to switch turns
-                    cell_num: (n*x)+y               // give each cell its own cell_num
+//                    text:'X',
+                    class: " cell btn btn-default col-xs" +"-"+12/n,
+                    height: 35/n+"vw",
+                    onclick:"next_move(this);",
+                    cell_num: (n*x)+y // give each cell its own cell_num
                 }));
         }
-        $(".game_body2").append("<br>");            // start the next n cells on another row
+//        $(".game_body2").append("<br>");            // start the next n cells on another row
     }
 }
 function nxnTTT () {                            // get winning_condition array of arrays for any odd number n
@@ -73,7 +74,7 @@ function nxnTTT () {                            // get winning_condition array o
 
     for (i=0; i < 1; ++i) {
         diagonal_2_winner[i] = [];
-        for (j = 0; j < n; j++) {                     // for diagonal going from bottom left corner to upper right corner
+        for (j = 0; j < n; j++) {                     // for diagonal going from bottom upper right to bottom left
             diagonal_2_winner[i].push((j + 1) * (n - 1));
         }
     }
